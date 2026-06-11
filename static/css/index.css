@@ -194,7 +194,7 @@ z-index: -1;
 }
 
 .question-description {
-max-width: 720px;
+max-width: 960px;
 font-size: 1.25rem;
 line-height: 1.65;
 color: #53627c;
@@ -486,7 +486,7 @@ margin-bottom: 0.9rem;
 }
 
 .graph-description {
-max-width: 760px;
+max-width: 960px;
 font-size: 1.08rem;
 line-height: 1.65;
 color: #53627c;
