@@ -617,13 +617,14 @@ margin-bottom: 2rem;
 }
 
 .graph-figure {
-margin-left: 0;
+display: flex;
+justify-content: center;
+margin-left: auto;
 margin-right: auto;
 }
 
 .graph-figure img {
-width: 100%;
-max-width: 1000px;
+width: min(88%, 880px);
 display: block;
 border-radius: 16px;
 border: 1px solid #e5e7eb;
@@ -649,6 +650,7 @@ font-size: 1rem;
 }
 
 .graph-figure img {
+width: 100%;
 border-radius: 12px;
 }
 }
