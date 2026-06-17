@@ -3,16 +3,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Video-Oasis: Rethinking Evaluation of Video Understanding">
+  <meta name="description" content="Video-Oasis: Rethinking Evaluation of Video Understanding">
   <meta name="keywords" content="Video-Oasis, Video Understanding, Spatio-Temporal Reasoning, Video Benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Video-Oasis: Rethinking Evaluation of Video Understanding</title>
 
   <!-- Google Analytics -->
-
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -24,430 +21,404 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/icon.png">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-
   <script src="./static/js/index.js"></script>
-
 </head>
 
 <body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Video-Oasis: Rethinking Evaluation of Video Understanding
+            </h1>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-
-      <h1 class="title is-1 publication-title">
-        Video-Oasis: Rethinking Evaluation of Video Understanding
-      </h1>
-
-      <div class="is-size-5 publication-authors">
-        <span class="author-block">
-          <a href="https://limgeuntaekk.github.io">Geuntaek Lim</a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">Sungjune Park</a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="#">Jaeyun Lee</a><sup>1</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=cfl4xNMAAAAJ&hl=ko">Inwoong Lee</a><sup>2</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=mMgadisAAAAJ&hl=ko">Taeoh Kim</a><sup>2</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=oEKX8h0AAAAJ&hl=ko">Dongyoon Wee</a><sup>2</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.com/citations?user=42dUnrgAAAAJ&hl=ko">Minho Shim</a><sup>2</sup>,
-        </span>
-        <span class="author-block">
-          <a href="https://scholar.google.co.kr/citations?user=vMrPtrAAAAAJ&hl=ko">Yukyung Choi</a><sup>1</sup>
-        </span>
-      </div>
-
-      <div class="is-size-5 publication-authors">
-        <span class="author-block"><sup>1</sup>Sejong University,</span>
-        <span class="author-block"><sup>2</sup>NAVER Cloud</span>
-      </div>
-
-      <div class="column has-text-centered">
-        <div class="publication-links">
-
-          <!-- Paper Link. -->
-          <span class="link-block">
-            <a href="https://arxiv.org/abs/2603.29616"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fas fa-file-pdf"></i>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://limgeuntaekk.github.io">Geuntaek Lim</a><sup>1</sup>,
               </span>
-              <span>Paper</span>
-            </a>
-          </span>
-
-          <!-- Video Link. -->
-          <span class="link-block">
-            <a href="#"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fab fa-youtube"></i>
+              <span class="author-block">
+                <a href="#">Sungjune Park</a><sup>1</sup>,
               </span>
-              <span>Video</span>
-            </a>
-          </span>
-
-          <!-- Code Link. -->
-          <span class="link-block">
-            <a href="https://github.com/sejong-rcv/Video-Oasis"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="fab fa-github"></i>
+              <span class="author-block">
+                <a href="#">Jaeyun Lee</a><sup>1</sup>,
               </span>
-              <span>Code</span>
-            </a>
-          </span>
-
-          <!-- Data Link. -->
-          <span class="link-block">
-            <a href="#"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                <i class="far fa-images"></i>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=cfl4xNMAAAAJ&hl=ko">Inwoong Lee</a><sup>2</sup>,
               </span>
-              <span>Data</span>
-            </a>
-          </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=mMgadisAAAAJ&hl=ko">Taeoh Kim</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=oEKX8h0AAAAJ&hl=ko">Dongyoon Wee</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=42dUnrgAAAAJ&hl=ko">Minho Shim</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.co.kr/citations?user=vMrPtrAAAAAJ&hl=ko">Yukyung Choi</a><sup>1</sup>
+              </span>
+            </div>
 
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Sejong University,</span>
+              <span class="author-block"><sup>2</sup>NAVER Cloud</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2603.29616" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/sejong-rcv/Video-Oasis" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- Data Link. -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="subtitle has-text-centered">
+          <strong>TL;DR:</strong> Video-Oasis rethinks the current benchmark landscape by examining whether proliferating video benchmarks truly satisfy <strong>shared criteria</strong> for genuine video understanding.
+        </h2>
+
+        <img
+          src="./static/images/teaser.png"
+          id="Teaser"
+          height="100%"
+          alt="Overview of Video-Oasis, a diagnostic suite for evaluating video understanding benchmarks.">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              The inherent complexity of video understanding makes it difficult to attribute whether performance gains stem from visual perception, linguistic reasoning, or knowledge priors. While many benchmarks have emerged to assess high-level reasoning, the essential criteria that constitute video understanding remain largely overlooked.
+            </p>
+
+            <p>
+              Instead of introducing yet another benchmark, we take a step back to re-examine the current landscape of video understanding. In this work, we provide Video-Oasis, a sustainable diagnostic suite designed to systematically evaluate existing evaluations and distill spatio-temporal challenges for video understanding. Our analysis reveals two critical findings: (1) 54% of existing benchmark samples are solvable without visual input or temporal context, and (2) on the remaining samples, state-of-the-art models exhibit performance barely exceeding random guessing.
+            </p>
+
+            <p>
+              To bridge this gap, we investigate which algorithmic design choices contribute to robust video understanding, providing practical guidelines for future research. We hope our work serves as a standard guideline for benchmark construction and the rigorous evaluation of architecture development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section question-section" id="questions">
+    <div class="container is-max-desktop">
+      <div class="question-content">
+        <h2 class="question-title">
+          <span class="highlight-word">What</span> should every video benchmark satisfy?
+        </h2>
+
+        <p class="question-description">
+          We begin by curating 14 diverse benchmarks, covering tasks from perception to reasoning across durations spanning seconds to hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shortcut-gallery-section" id="shortcut-gallery">
+    <div class="container is-max-desktop">
+      <div class="shortcut-gallery-header">
+        <h2 class="shortcut-gallery-title">An Example of Non-Video Shortcut Problems</h2>
+        <p class="shortcut-gallery-description">
+          Examples of video-QA instances that can be solved without spatio-temporal video understanding.
+        </p>
+      </div>
+
+      <div class="shortcut-gallery-grid">
+        <div
+          class="shortcut-card"
+          data-image="./static/images/teaser.png"
+          data-benchmark="tmp"
+          data-question="tmp"
+          data-answer="tmp"
+          data-type="tmp"
+          data-reason="tmp"
+          data-evidence="tmp">
+          <div class="shortcut-card-image-wrapper">
+            <img src="./static/images/teaser.png" alt="tmp">
+          </div>
+          <div class="shortcut-card-body">
+            <span class="shortcut-card-tag">tmp</span>
+            <h3 class="shortcut-card-title">tmp</h3>
+            <p class="shortcut-card-text">tmp</p>
+          </div>
+        </div>
+
+        <div
+          class="shortcut-card"
+          data-image="./static/images/teaser.png"
+          data-benchmark="tmp"
+          data-question="tmp"
+          data-answer="tmp"
+          data-type="tmp"
+          data-reason="tmp"
+          data-evidence="tmp">
+          <div class="shortcut-card-image-wrapper">
+            <img src="./static/images/teaser.png" alt="tmp">
+          </div>
+          <div class="shortcut-card-body">
+            <span class="shortcut-card-tag">tmp</span>
+            <h3 class="shortcut-card-title">tmp</h3>
+            <p class="shortcut-card-text">tmp</p>
+          </div>
+        </div>
+
+        <div
+          class="shortcut-card"
+          data-image="./static/images/teaser.png"
+          data-benchmark="tmp"
+          data-question="tmp"
+          data-answer="tmp"
+          data-type="tmp"
+          data-reason="tmp"
+          data-evidence="tmp">
+          <div class="shortcut-card-image-wrapper">
+            <img src="./static/images/teaser.png" alt="tmp">
+          </div>
+          <div class="shortcut-card-body">
+            <span class="shortcut-card-tag">tmp</span>
+            <h3 class="shortcut-card-title">tmp</h3>
+            <p class="shortcut-card-text">tmp</p>
+          </div>
+        </div>
+
+        <div
+          class="shortcut-card"
+          data-image="./static/images/teaser.png"
+          data-benchmark="tmp"
+          data-question="tmp"
+          data-answer="tmp"
+          data-type="tmp"
+          data-reason="tmp"
+          data-evidence="tmp">
+          <div class="shortcut-card-image-wrapper">
+            <img src="./static/images/teaser.png" alt="tmp">
+          </div>
+          <div class="shortcut-card-body">
+            <span class="shortcut-card-tag">tmp</span>
+            <h3 class="shortcut-card-title">tmp</h3>
+            <p class="shortcut-card-text">tmp</p>
+          </div>
+        </div>
+
+        <div
+          class="shortcut-card"
+          data-image="./static/images/teaser.png"
+          data-benchmark="tmp"
+          data-question="tmp"
+          data-answer="tmp"
+          data-type="tmp"
+          data-reason="tmp"
+          data-evidence="tmp">
+          <div class="shortcut-card-image-wrapper">
+            <img src="./static/images/teaser.png" alt="tmp">
+          </div>
+          <div class="shortcut-card-body">
+            <span class="shortcut-card-tag">tmp</span>
+            <h3 class="shortcut-card-title">tmp</h3>
+            <p class="shortcut-card-text">tmp</p>
+          </div>
+        </div>
+
+        <div
+          class="shortcut-card"
+          data-image="./static/images/teaser.png"
+          data-benchmark="tmp"
+          data-question="tmp"
+          data-answer="tmp"
+          data-type="tmp"
+          data-reason="tmp"
+          data-evidence="tmp">
+          <div class="shortcut-card-image-wrapper">
+            <img src="./static/images/teaser.png" alt="tmp">
+          </div>
+          <div class="shortcut-card-body">
+            <span class="shortcut-card-tag">tmp</span>
+            <h3 class="shortcut-card-title">tmp</h3>
+            <p class="shortcut-card-text">tmp</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="shortcut-modal" id="shortcut-modal">
+    <div class="shortcut-modal-background"></div>
+
+    <div class="shortcut-modal-content">
+      <button class="shortcut-modal-close" aria-label="close">&times;</button>
+
+      <div class="shortcut-modal-layout">
+        <div class="shortcut-modal-image-wrapper">
+          <img id="modal-image" src="./static/images/teaser.png" alt="tmp">
+        </div>
+
+        <div class="shortcut-modal-body">
+          <span class="shortcut-modal-tag" id="modal-type">tmp</span>
+
+          <div class="shortcut-modal-field">
+            <h4>Benchmark</h4>
+            <p id="modal-benchmark">tmp</p>
+          </div>
+
+          <div class="shortcut-modal-field">
+            <h4>Question</h4>
+            <p id="modal-question">tmp</p>
+          </div>
+
+          <div class="shortcut-modal-field">
+            <h4>Answer</h4>
+            <p id="modal-answer">tmp</p>
+          </div>
+
+          <div class="shortcut-modal-field">
+            <h4>Why Shortcut?</h4>
+            <p id="modal-reason">tmp</p>
+          </div>
+
+          <div class="shortcut-modal-field">
+            <h4>Diagnostic Evidence</h4>
+            <p id="modal-evidence">tmp</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-  </div>
-</section>
+  <section class="section graph-section" id="performance-shortcut">
+    <div class="container is-max-desktop">
+      <div class="graph-content">
+        <h2 class="graph-title">
+          Higher benchmark scores come with higher shortcut ratios
+        </h2>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="subtitle has-text-centered">
-        <strong>TL;DR:</strong> Video-Oasis rethinks the current benchmark landscape by examining whether proliferating video benchmarks truly satisfy <strong>shared criteria</strong> for genuine video understanding.
-      </h2>
+        <p class="graph-description">
+          If benchmark scores faithfully measure video understanding, stronger performance should indicate better spatio-temporal reasoning.
+          However, we find that high benchmark accuracy often coincides with high shortcut ratios.
+        </p>
 
-  <img src="./static/images/teaser.png"
-       id="Teaser"
-       height="100%"
-       alt="Overview of Video-Oasis, a diagnostic suite for evaluating video understanding benchmarks.">
-</div>
-
-  </div>
-</section>
-
-<section class="section" style="background-color: #f5f5f5;">
-  <div class="container is-max-desktop">
-
-
-<!-- Abstract. -->
-<div class="columns is-centered has-text-centered">
-  <div class="column is-four-fifths">
-    <h2 class="title is-3">Abstract</h2>
-
-    <div class="content has-text-justified">
-      <p>
-        The inherent complexity of video understanding makes it difficult to attribute whether performance gains stem from visual perception, linguistic reasoning, or knowledge priors. While many benchmarks have emerged to assess high-level reasoning, the essential criteria that constitute video understanding remain largely overlooked.
-      </p>
-
-      <p>
-        Instead of introducing yet another benchmark, we take a step back to re-examine the current landscape of video understanding. In this work, we provide Video-Oasis, a sustainable diagnostic suite designed to systematically evaluate existing evaluations and distill spatio-temporal challenges for video understanding. Our analysis reveals two critical findings: (1) 54% of existing benchmark samples are solvable without visual input or temporal context, and (2) on the remaining samples, state-of-the-art models exhibit performance barely exceeding random guessing.
-      </p>
-
-      <p>
-        To bridge this gap, we investigate which algorithmic design choices contribute to robust video understanding, providing practical guidelines for future research. We hope our work serves as a standard guideline for benchmark construction and the rigorous evaluation of architecture development.
-      </p>
+        <figure class="graph-figure">
+          <img
+            src="./static/images/Performance_Shortcut.png"
+            alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
+        </figure>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-  </div>
-</section>
-<section class="section question-section" id="questions">
-  <div class="container is-max-desktop">
-    <div class="question-content">
+  <section class="section graph-section" id="performance-collapse">
+    <div class="container is-max-desktop">
+      <div class="graph-content">
+        <h2 class="graph-title">
+          Higher benchmark scores often come with higher shortcut ratios
+        </h2>
 
+        <p class="graph-description">
+          On the video-native challenges, state-of-the-art models achieve performance only marginally above the random-chance level.
+        </p>
 
-  <h2 class="question-title">
-    <span class="highlight-word">What</span> should every video benchmark satisfy?
-  </h2>
-
-  <p class="question-description">
-    We begin by curating 14 diverse benchmarks, covering tasks from perception to reasoning across durations spanning seconds to hours.
-  </p>
-</div>
-  </div>
-</section>
-
-<section class="section shortcut-gallery-section" id="shortcut-gallery">
-  <div class="container is-max-desktop">
-
-<div class="shortcut-gallery-header">
-  <h2 class="shortcut-gallery-title">An Example of Non-Video Shortcut Problems</h2>
-  <p class="shortcut-gallery-description">
-    Examples of video-QA instances that can be solved without spatio-temporal video understanding.
-  </p>
-</div>
-
-<div class="shortcut-gallery-grid">
-
-  <div class="shortcut-card"
-       data-image="./static/images/teaser.png"
-       data-benchmark="tmp"
-       data-question="tmp"
-       data-answer="tmp"
-       data-type="tmp"
-       data-reason="tmp"
-       data-evidence="tmp">
-    <div class="shortcut-card-image-wrapper">
-      <img src="./static/images/teaser.png" alt="tmp">
+        <figure class="graph-figure">
+          <img
+            src="./static/images/Performance_Collapse.png"
+            alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
+        </figure>
+      </div>
     </div>
-    <div class="shortcut-card-body">
-      <span class="shortcut-card-tag">tmp</span>
-      <h3 class="shortcut-card-title">tmp</h3>
-      <p class="shortcut-card-text">tmp</p>
+  </section>
+
+  <section class="section question-section" id="what-is-video-oasis">
+    <div class="container is-max-desktop">
+      <div class="question-content">
+        <h2 class="question-title">
+          <span class="highlight-word">What</span> is Video-Oasis?
+        </h2>
+
+        <p class="question-description">
+          The whole process of analysis and filtering out shortcuts is dubbed VideoOasis (V-Oasis). The V-Oasis diagnosis reveals the core spatio-temporal challenges.
+        </p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="shortcut-card"
-       data-image="./static/images/teaser.png"
-       data-benchmark="tmp"
-       data-question="tmp"
-       data-answer="tmp"
-       data-type="tmp"
-       data-reason="tmp"
-       data-evidence="tmp">
-    <div class="shortcut-card-image-wrapper">
-      <img src="./static/images/teaser.png" alt="tmp">
+  <section class="section graph-section" id="video-oasis-overview">
+    <div class="container is-max-desktop">
+      <div class="graph-content">
+        <figure class="graph-figure">
+          <img
+            src="./static/images/video-oasis.png"
+            alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
+        </figure>
+      </div>
     </div>
-    <div class="shortcut-card-body">
-      <span class="shortcut-card-tag">tmp</span>
-      <h3 class="shortcut-card-title">tmp</h3>
-      <p class="shortcut-card-text">tmp</p>
-    </div>
-  </div>
+  </section>
 
-  <div class="shortcut-card"
-       data-image="./static/images/teaser.png"
-       data-benchmark="tmp"
-       data-question="tmp"
-       data-answer="tmp"
-       data-type="tmp"
-       data-reason="tmp"
-       data-evidence="tmp">
-    <div class="shortcut-card-image-wrapper">
-      <img src="./static/images/teaser.png" alt="tmp">
-    </div>
-    <div class="shortcut-card-body">
-      <span class="shortcut-card-tag">tmp</span>
-      <h3 class="shortcut-card-title">tmp</h3>
-      <p class="shortcut-card-text">tmp</p>
-    </div>
-  </div>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
 
-  <div class="shortcut-card"
-       data-image="./static/images/teaser.png"
-       data-benchmark="tmp"
-       data-question="tmp"
-       data-answer="tmp"
-       data-type="tmp"
-       data-reason="tmp"
-       data-evidence="tmp">
-    <div class="shortcut-card-image-wrapper">
-      <img src="./static/images/teaser.png" alt="tmp">
-    </div>
-    <div class="shortcut-card-body">
-      <span class="shortcut-card-tag">tmp</span>
-      <h3 class="shortcut-card-title">tmp</h3>
-      <p class="shortcut-card-text">tmp</p>
-    </div>
-  </div>
-
-  <div class="shortcut-card"
-       data-image="./static/images/teaser.png"
-       data-benchmark="tmp"
-       data-question="tmp"
-       data-answer="tmp"
-       data-type="tmp"
-       data-reason="tmp"
-       data-evidence="tmp">
-    <div class="shortcut-card-image-wrapper">
-      <img src="./static/images/teaser.png" alt="tmp">
-    </div>
-    <div class="shortcut-card-body">
-      <span class="shortcut-card-tag">tmp</span>
-      <h3 class="shortcut-card-title">tmp</h3>
-      <p class="shortcut-card-text">tmp</p>
-    </div>
-  </div>
-
-  <div class="shortcut-card"
-       data-image="./static/images/teaser.png"
-       data-benchmark="tmp"
-       data-question="tmp"
-       data-answer="tmp"
-       data-type="tmp"
-       data-reason="tmp"
-       data-evidence="tmp">
-    <div class="shortcut-card-image-wrapper">
-      <img src="./static/images/teaser.png" alt="tmp">
-    </div>
-    <div class="shortcut-card-body">
-      <span class="shortcut-card-tag">tmp</span>
-      <h3 class="shortcut-card-title">tmp</h3>
-      <p class="shortcut-card-text">tmp</p>
-    </div>
-  </div>
-
-</div>
-
-
-  </div>
-</section>
-
-<div class="shortcut-modal" id="shortcut-modal">
-  <div class="shortcut-modal-background"></div>
-
-  <div class="shortcut-modal-content">
-    <button class="shortcut-modal-close" aria-label="close">&times;</button>
-
-
-<div class="shortcut-modal-layout">
-  <div class="shortcut-modal-image-wrapper">
-    <img id="modal-image" src="./static/images/teaser.png" alt="tmp">
-  </div>
-
-  <div class="shortcut-modal-body">
-    <span class="shortcut-modal-tag" id="modal-type">tmp</span>
-
-    <div class="shortcut-modal-field">
-      <h4>Benchmark</h4>
-      <p id="modal-benchmark">tmp</p>
-    </div>
-
-    <div class="shortcut-modal-field">
-      <h4>Question</h4>
-      <p id="modal-question">tmp</p>
-    </div>
-
-    <div class="shortcut-modal-field">
-      <h4>Answer</h4>
-      <p id="modal-answer">tmp</p>
-    </div>
-
-    <div class="shortcut-modal-field">
-      <h4>Why Shortcut?</h4>
-      <p id="modal-reason">tmp</p>
-    </div>
-
-    <div class="shortcut-modal-field">
-      <h4>Diagnostic Evidence</h4>
-      <p id="modal-evidence">tmp</p>
-    </div>
-  </div>
-</div>
-
-  </div>
-</div>
-<section class="section graph-section" id="performance-shortcut">
-  <div class="container is-max-desktop">
-    <div class="graph-content">
-
-  <h2 class="graph-title">
-    Higher benchmark scores come with higher shortcut ratios
-  </h2>
-
-  <p class="graph-description">
-    If benchmark scores faithfully measure video understanding, stronger performance should indicate better spatio-temporal reasoning.
-    However, we find that high benchmark accuracy often coincides with high shortcut ratios.
-  </p>
-
-  <figure class="graph-figure">
-    <img src="./static/images/Performance_Shortcut.png"
-         alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
-  </figure>
-
-</div>
-
-  </div>
-</section>
-
-<section class="section graph-section" id="performance-collapse">
-  <div class="container is-max-desktop">
-    <div class="graph-content">
-
-  <h2 class="graph-title">
-    Higher benchmark scores often come with higher shortcut ratios
-  </h2>
-
-  <p class="graph-description">
-    On the video-native challenges, state-of-the-art models achieve performance only marginally above the random-chance level.
-  </p>
-
-  <figure class="graph-figure">
-    <img src="./static/images/Performance_Collapse.png"
-         alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
-  </figure>
-
-</div>
-
-  </div>
-</section>
-
-<section class="section question-section" id="what-is-video-oasis">
-  <div class="container is-max-desktop">
-    <div class="question-content">
-
-
-  <h2 class="question-title">
-    <span class="highlight-word">What</span> is Video-Oasis?
-  </h2>
-
-  <p class="question-description">
-    The whole process of analysis and filtering out shortcuts is dubbed VideoOasis (V-Oasis). The V-Oasis diagnosis reveals the core spatio-temporal challenges.
-  </p>
-</div>
-  </div>
-</section>
-
-<section class="section graph-section" id="video-oasis-overview">
-  <div class="container is-max-desktop">
-    <div class="graph-content">
-
-  <figure class="graph-figure">
-    <img src="./static/images/video-oasis.png"
-         alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
-  </figure>
-
-</div>
-
-  </div>
-</section>
-  
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-
-<pre><code>@article{lim2026videooasis,
+      <pre><code>@article{lim2026videooasis,
 
 
 author    = {Geuntaek Lim and Sungjune Park and Jaeyun Lee and Inwoong Lee and Taeoh Kim and Dongyoon Wee and Minho Shim and Yukyung Choi},
@@ -455,21 +426,19 @@ title     = {Video-Oasis: Rethinking Evaluation of Video Understanding},
 journal   = {arXiv preprint arXiv:2603.29616},
 year      = {2026},
 }</code></pre>
+    </div>
+  </section>
 
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          The website template is from <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            The website template is from <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
