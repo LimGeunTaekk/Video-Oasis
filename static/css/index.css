@@ -646,6 +646,16 @@ padding-right: 0;
 background-color: #ffffff;
 }
 
+#performance-shortcut,
+#performance-collapse {
+padding-bottom: 3.25rem;
+}
+
+#performance-shortcut .graph-figure,
+#performance-collapse .graph-figure {
+margin: 0 auto;
+}
+
 .graph-content {
 max-width: 1000px;
 margin-left: 0;
