@@ -454,6 +454,8 @@
   <section class="section graph-section" id="performance-collapse">
     <div class="container is-max-desktop">
       <div class="graph-content">
+        <span class="graph-kicker">Filtered evaluation</span>
+
         <h2 class="graph-title">
           Removing Shortcuts Reveals the Real Challenge
         </h2>
@@ -462,10 +464,24 @@
           Once shortcut-solvable samples are removed, benchmark accuracy drops sharply across state-of-the-art video-LLMs. On the remaining video-native challenges, most models perform only marginally above random chance. This reveals that high benchmark scores can mask a substantial gap in genuine spatio-temporal understanding.
         </p>
 
+        <div class="graph-insights graph-insights-two" aria-label="Filtered evaluation summary">
+          <div class="graph-insight">
+            <span>Filtered setting</span>
+            <strong>Shortcut-solvable samples removed</strong>
+          </div>
+          <div class="graph-insight">
+            <span>Observed effect</span>
+            <strong>Accuracy drops toward random chance.</strong>
+          </div>
+        </div>
+
         <figure class="graph-figure">
           <img
             src="./static/images/Performance_Collapse.png"
             alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
+          <figcaption>
+            Model accuracy is recomputed after removing samples that can be solved through non-video shortcuts.
+          </figcaption>
         </figure>
       </div>
     </div>
