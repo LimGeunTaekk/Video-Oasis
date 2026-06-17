@@ -409,6 +409,8 @@
   <section class="section graph-section" id="performance-shortcut">
     <div class="container is-max-desktop">
       <div class="graph-content">
+        <span class="graph-kicker">Benchmark-wide pattern</span>
+
         <h2 class="graph-title">
           When High Scores Hide Weak Video Dependency
         </h2>
@@ -417,10 +419,24 @@
           The shortcut examples above are not rare corner cases. Across 14 video benchmarks, we measure how often each benchmark can be solved without full visual or temporal dependency. By comparing these shortcut ratios with reported benchmark accuracy, we find that higher scores often coincide with higher shortcut solvability. This suggests that benchmark performance can be inflated when video-native requirements are not strictly enforced.
         </p>
 
+        <div class="graph-insights" aria-label="Shortcut ratio analysis summary">
+          <div class="graph-insight">
+            <span>Benchmarks analyzed</span>
+            <strong>14</strong>
+          </div>
+          <div class="graph-insight">
+            <span>Key pattern</span>
+            <strong>Higher scores can align with higher shortcut solvability.</strong>
+          </div>
+        </div>
+
         <figure class="graph-figure">
           <img
             src="./static/images/Performance_Shortcut.png"
             alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
+          <figcaption>
+            Shortcut ratio is compared against reported benchmark accuracy across the benchmark suite.
+          </figcaption>
         </figure>
       </div>
     </div>

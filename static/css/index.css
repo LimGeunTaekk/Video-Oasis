@@ -653,6 +653,22 @@ margin-right: auto;
 text-align: left;
 }
 
+.graph-kicker {
+display: inline-flex;
+align-items: center;
+font-size: 0.76rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.1);
+border: 1px solid rgba(79, 107, 220, 0.16);
+border-radius: 999px;
+padding: 0.45rem 0.7rem;
+margin-bottom: 0.8rem;
+}
+
 .graph-title {
 font-family: 'Google Sans', sans-serif;
 font-size: 2.2rem;
@@ -674,8 +690,53 @@ margin-right: auto;
 margin-bottom: 2rem;
 }
 
+.graph-insights {
+display: grid;
+grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
+gap: 1rem;
+max-width: 960px;
+margin-bottom: 2rem;
+}
+
+.graph-insight {
+min-width: 0;
+padding: 1rem 1.1rem;
+background: #f8fafc;
+border: 1px solid #dfe7f1;
+border-radius: 10px;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+.graph-insight span {
+display: block;
+font-size: 0.74rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #64748b;
+margin-bottom: 0.55rem;
+}
+
+.graph-insight strong {
+display: block;
+font-family: 'Google Sans', sans-serif;
+font-size: 1.08rem;
+line-height: 1.35;
+font-weight: 800;
+color: #1f2937;
+}
+
+.graph-insight:first-child strong {
+font-size: 2.1rem;
+line-height: 1;
+color: #4f6bdc;
+}
+
 .graph-figure {
 display: flex;
+flex-direction: column;
+align-items: center;
 justify-content: center;
 margin-left: auto;
 margin-right: auto;
@@ -705,6 +766,10 @@ font-size: 1.9rem;
 
 .graph-description {
 font-size: 1rem;
+}
+
+.graph-insights {
+grid-template-columns: 1fr;
 }
 
 .graph-figure img {
