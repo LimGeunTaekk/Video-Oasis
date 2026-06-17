@@ -16,28 +16,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const closeButton = modal.querySelector(".shortcut-modal-close");
   const background = modal.querySelector(".shortcut-modal-background");
+  let lastFocusedCard = null;
+
+  function getCardValue(card, key) {
+    return card.dataset[key] || "";
+  }
 
   function openModal(card) {
-    modalImage.src = card.dataset.image;
-    modalType.textContent = card.dataset.type;
-    modalBenchmark.textContent = card.dataset.benchmark;
-    modalQuestion.textContent = card.dataset.question;
-    modalAnswer.textContent = card.dataset.answer;
-    modalReason.textContent = card.dataset.reason;
-    modalEvidence.textContent = card.dataset.evidence;
+    const benchmark = getCardValue(card, "benchmark");
+    const question = getCardValue(card, "question");
+    const type = getCardValue(card, "type");
+
+    lastFocusedCard = card;
+
+    modalImage.src = getCardValue(card, "image");
+    modalImage.alt = benchmark || question || "Shortcut diagnostic evidence";
+    modalType.textContent = type;
+    modalBenchmark.textContent = benchmark;
+    modalQuestion.textContent = question;
+    modalAnswer.textContent = getCardValue(card, "answer");
+    modalReason.textContent = getCardValue(card, "reason");
+    modalEvidence.textContent = getCardValue(card, "evidence");
 
     modal.classList.add("is-active");
     document.body.style.overflow = "hidden";
+    closeButton.focus();
   }
 
   function closeModal() {
     modal.classList.remove("is-active");
     document.body.style.overflow = "";
+
+    if (lastFocusedCard) {
+      lastFocusedCard.focus();
+    }
   }
 
   cards.forEach(function (card) {
     card.addEventListener("click", function () {
       openModal(card);
+    });
+
+    card.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModal(card);
+      }
     });
   });
 

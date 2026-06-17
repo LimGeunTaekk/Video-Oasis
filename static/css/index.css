@@ -103,21 +103,42 @@ font-size: 1.05rem;
 }
 
 .shortcut-gallery-section {
-padding-top: 0rem;
-padding-bottom: 1rem;
-background-color: #ffffff;
+padding-top: 0;
+padding-bottom: 2.5rem;
+background:
+linear-gradient(180deg, #ffffff 0%, #ffffff 58%, #f8fafc 58%, #f8fafc 100%);
 overflow-x: hidden;
 }
 
 .shortcut-gallery-header {
 max-width: 960px;
-margin: 0 0 2rem 0;
+margin: 0 0 1.75rem 0;
 text-align: left;
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 1.5rem;
+}
+
+.shortcut-gallery-kicker {
+display: inline-flex;
+align-items: center;
+font-size: 0.76rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.1);
+border: 1px solid rgba(79, 107, 220, 0.16);
+border-radius: 999px;
+padding: 0.45rem 0.7rem;
+margin-bottom: 0.8rem;
 }
 
 .shortcut-gallery-title {
 font-family: 'Google Sans', sans-serif;
-font-size: 2.2rem;
+font-size: 2.35rem;
 line-height: 1.15;
 font-weight: 800;
 letter-spacing: -0.035em;
@@ -134,32 +155,53 @@ color: #53627c;
 .shortcut-gallery-grid {
 display: grid;
 grid-template-columns: repeat(3, minmax(0, 1fr));
-gap: 1rem;
+gap: 1.1rem;
 max-width: 960px;
 margin: 0;
+align-items: stretch;
 }
 
 .shortcut-card {
 min-width: 0;
 background: #ffffff;
-border: 1px solid #e5e7eb;
-border-radius: 14px;
+border: 1px solid #dfe7f1;
+border-radius: 12px;
 overflow: hidden;
 cursor: pointer;
+display: flex;
+flex-direction: column;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
 transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
-.shortcut-card:hover {
+.shortcut-card-featured {
+grid-column: span 2;
+}
+
+.shortcut-card:hover,
+.shortcut-card:focus {
 transform: translateY(-3px);
-border-color: #c7d2fe;
-box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+border-color: #9fb0f5;
+box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+outline: none;
+}
+
+.shortcut-card:focus-visible {
+outline: 3px solid rgba(79, 107, 220, 0.28);
+outline-offset: 3px;
 }
 
 .shortcut-card-image-wrapper {
+position: relative;
 width: 100%;
-height: 150px;
-background: #f3f4f6;
+height: 155px;
+background: #eef2f7;
 overflow: hidden;
+border-bottom: 1px solid #e5eaf2;
+}
+
+.shortcut-card-featured .shortcut-card-image-wrapper {
+height: 235px;
 }
 
 .shortcut-card-image-wrapper img {
@@ -167,26 +209,89 @@ width: 100%;
 height: 100%;
 object-fit: contain;
 display: block;
+padding: 0.65rem;
+}
+
+.shortcut-card-overlay {
+position: absolute;
+left: 0.75rem;
+right: 0.75rem;
+top: 0.75rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.5rem;
+pointer-events: none;
+}
+
+.shortcut-card-pill {
+max-width: 52%;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-size: 0.7rem;
+font-weight: 800;
+line-height: 1;
+color: #172554;
+background: rgba(255, 255, 255, 0.9);
+border: 1px solid rgba(148, 163, 184, 0.35);
+border-radius: 999px;
+padding: 0.42rem 0.62rem;
+box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.shortcut-card-pill-secondary {
+color: #6d28d9;
+background: rgba(245, 243, 255, 0.94);
+border-color: rgba(167, 139, 250, 0.32);
 }
 
 .shortcut-card-body {
-padding: 0.9rem;
+padding: 1rem;
+display: flex;
+flex: 1;
+flex-direction: column;
+}
+
+.shortcut-card-featured .shortcut-card-body {
+padding: 1.15rem;
+}
+
+.shortcut-card-meta {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.75rem;
+margin-bottom: 0.7rem;
 }
 
 .shortcut-card-tag {
-display: inline-block;
+display: inline-flex;
+min-width: 0;
+max-width: 68%;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 font-size: 0.68rem;
 font-weight: 700;
 color: #4f6bdc;
 background: rgba(79, 107, 220, 0.1);
 border-radius: 999px;
 padding: 0.25rem 0.55rem;
-margin-bottom: 0.55rem;
+}
+
+.shortcut-card-index {
+font-size: 0.72rem;
+font-weight: 800;
+color: #94a3b8;
+letter-spacing: 0.04em;
+text-transform: uppercase;
 }
 
 .shortcut-card-title {
 font-family: 'Google Sans', sans-serif;
-font-size: 0.98rem;
+font-size: 1.04rem;
+line-height: 1.25;
 font-weight: 700;
 color: #111827;
 margin-bottom: 0.35rem;
@@ -196,13 +301,48 @@ margin-bottom: 0.35rem;
 font-size: 0.85rem;
 line-height: 1.45;
 color: #64748b;
-margin-bottom: 0;
+margin-bottom: 0.9rem;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.shortcut-card-diagnosis {
+margin-top: auto;
+padding-top: 0.8rem;
+border-top: 1px solid #eef2f7;
+}
+
+.shortcut-card-diagnosis span {
+display: block;
+font-size: 0.68rem;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #94a3b8;
+margin-bottom: 0.3rem;
+}
+
+.shortcut-card-diagnosis strong {
+display: block;
+font-size: 0.86rem;
+line-height: 1.35;
+color: #1f2937;
+font-weight: 700;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
 @media screen and (max-width: 900px) {
 .shortcut-gallery-grid {
 grid-template-columns: repeat(2, minmax(0, 1fr));
 max-width: 640px;
+}
+
+.shortcut-card-featured {
+grid-column: span 2;
 }
 }
 
@@ -212,8 +352,13 @@ grid-template-columns: 1fr;
 max-width: 360px;
 }
 
+.shortcut-card-featured {
+grid-column: span 1;
+}
+
+.shortcut-card-featured .shortcut-card-image-wrapper,
 .shortcut-card-image-wrapper {
-height: 160px;
+height: 180px;
 }
 
 .shortcut-gallery-title {
@@ -244,11 +389,11 @@ backdrop-filter: blur(4px);
 
 .shortcut-modal-content {
 position: relative;
-width: min(1000px, 100%);
+width: min(1040px, 100%);
 max-height: 88vh;
 overflow-y: auto;
 background: #ffffff;
-border-radius: 22px;
+border-radius: 18px;
 box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
@@ -270,12 +415,16 @@ cursor: pointer;
 
 .shortcut-modal-layout {
 display: grid;
-grid-template-columns: 1.1fr 0.9fr;
+grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
 }
 
 .shortcut-modal-image-wrapper {
-background: #f3f4f6;
+position: relative;
+background: #eef2f7;
 min-height: 420px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .shortcut-modal-image-wrapper img {
@@ -284,10 +433,35 @@ height: 100%;
 min-height: 420px;
 object-fit: contain;
 display: block;
+padding: 1rem;
+}
+
+.shortcut-modal-image-caption {
+position: absolute;
+left: 1rem;
+bottom: 1rem;
+display: inline-flex;
+font-size: 0.72rem;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #475569;
+background: rgba(255, 255, 255, 0.88);
+border: 1px solid rgba(148, 163, 184, 0.28);
+border-radius: 999px;
+padding: 0.45rem 0.7rem;
 }
 
 .shortcut-modal-body {
 padding: 2.4rem;
+}
+
+.shortcut-modal-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.75rem;
+margin-bottom: 1.25rem;
 }
 
 .shortcut-modal-tag {
@@ -298,11 +472,62 @@ color: #4f6bdc;
 background: rgba(79, 107, 220, 0.1);
 border-radius: 999px;
 padding: 0.35rem 0.75rem;
-margin-bottom: 1.5rem;
+}
+
+.shortcut-modal-benchmark {
+min-width: 0;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-size: 0.8rem;
+font-weight: 800;
+color: #64748b;
+background: #f8fafc;
+border: 1px solid #e2e8f0;
+border-radius: 999px;
+padding: 0.35rem 0.75rem;
+}
+
+.shortcut-modal-question {
+padding: 1.1rem;
+background: #f8fafc;
+border: 1px solid #e2e8f0;
+border-radius: 12px;
+margin-bottom: 1.25rem;
+}
+
+.shortcut-modal-question h4 {
+font-size: 0.75rem;
+font-weight: 800;
+color: #94a3b8;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+margin-bottom: 0.45rem;
+}
+
+.shortcut-modal-question p {
+font-family: 'Google Sans', sans-serif;
+font-size: 1.18rem;
+line-height: 1.45;
+font-weight: 700;
+color: #111827;
+}
+
+.shortcut-modal-fields {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 0.85rem;
 }
 
 .shortcut-modal-field {
-margin-bottom: 1.25rem;
+padding: 1rem;
+background: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 12px;
+}
+
+.shortcut-modal-field-wide {
+grid-column: span 2;
 }
 
 .shortcut-modal-field h4 {
@@ -318,6 +543,7 @@ margin-bottom: 0.35rem;
 font-size: 1rem;
 line-height: 1.6;
 color: #1f2937;
+margin-bottom: 0;
 }
 
 @media screen and (max-width: 900px) {
@@ -329,6 +555,14 @@ grid-template-columns: 1fr;
 .shortcut-modal-image-wrapper img {
 min-height: 260px;
 }
+
+.shortcut-modal-fields {
+grid-template-columns: 1fr;
+}
+
+.shortcut-modal-field-wide {
+grid-column: span 1;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -338,6 +572,11 @@ padding: 1rem;
 
 .shortcut-modal-body {
 padding: 1.5rem;
+}
+
+.shortcut-modal-header {
+align-items: flex-start;
+flex-direction: column;
 }
 }
 
