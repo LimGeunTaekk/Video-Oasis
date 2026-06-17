@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalQuestion = document.getElementById("modal-question");
   const modalAnswer = document.getElementById("modal-answer");
   const modalReason = document.getElementById("modal-reason");
-  const modalEvidence = document.getElementById("modal-evidence");
 
   const closeButton = modal.querySelector(".shortcut-modal-close");
   const background = modal.querySelector(".shortcut-modal-background");
@@ -30,13 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
     lastFocusedCard = card;
 
     modalImage.src = getCardValue(card, "image");
-    modalImage.alt = benchmark || question || "Shortcut diagnostic evidence";
+    modalImage.alt = benchmark || question || "Shortcut case preview";
     modalType.textContent = type;
     modalBenchmark.textContent = benchmark;
     modalQuestion.textContent = question;
     modalAnswer.textContent = getCardValue(card, "answer");
     modalReason.textContent = getCardValue(card, "reason");
-    modalEvidence.textContent = getCardValue(card, "evidence");
 
     modal.classList.add("is-active");
     document.body.style.overflow = "hidden";
