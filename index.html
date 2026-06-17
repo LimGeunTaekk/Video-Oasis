@@ -122,47 +122,6 @@
     </div>
   </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <h2 class="subtitle has-text-centered">
-          <strong>TL;DR:</strong> Video-Oasis rethinks the current benchmark landscape by examining whether proliferating video benchmarks truly satisfy <strong>shared criteria</strong> for genuine video understanding.
-        </h2>
-
-        <img
-          src="./static/images/teaser.png"
-          id="Teaser"
-          height="100%"
-          alt="Overview of Video-Oasis, a diagnostic suite for evaluating video understanding benchmarks.">
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background-color: #f5f5f5;">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-
-          <div class="content has-text-justified">
-            <p>
-              The inherent complexity of video understanding makes it difficult to attribute whether performance gains stem from visual perception, linguistic reasoning, or knowledge priors. While many benchmarks have emerged to assess high-level reasoning, the essential criteria that constitute video understanding remain largely overlooked.
-            </p>
-
-            <p>
-              Instead of introducing yet another benchmark, we take a step back to re-examine the current landscape of video understanding. In this work, we provide Video-Oasis, a sustainable diagnostic suite designed to systematically evaluate existing evaluations and distill spatio-temporal challenges for video understanding. Our analysis reveals two critical findings: (1) 54% of existing benchmark samples are solvable without visual input or temporal context, and (2) on the remaining samples, state-of-the-art models exhibit performance barely exceeding random guessing.
-            </p>
-
-            <p>
-              To bridge this gap, we investigate which algorithmic design choices contribute to robust video understanding, providing practical guidelines for future research. We hope our work serves as a standard guideline for benchmark construction and the rigorous evaluation of architecture development.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section question-section" id="questions">
     <div class="container is-max-desktop">
       <div class="question-content">
@@ -611,6 +570,15 @@
             <p>Integrate long-range evidence across multiple scenes into a coherent story.</p>
           </div>
         </div>
+
+        <figure class="challenge-figure">
+          <img
+            src="./static/images/teaser.png"
+            alt="Overview of video-native challenges distilled by Video-Oasis.">
+          <figcaption>
+            Video-native challenges distilled after filtering shortcut-solvable benchmark samples.
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
