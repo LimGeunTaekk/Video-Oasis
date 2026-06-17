@@ -75,6 +75,22 @@ background-color: rgba(79, 107, 220, 0.18);
 z-index: -1;
 }
 
+.question-kicker {
+display: inline-flex;
+align-items: center;
+font-size: 0.76rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.1);
+border: 1px solid rgba(79, 107, 220, 0.16);
+border-radius: 999px;
+padding: 0.45rem 0.7rem;
+margin-bottom: 0.8rem;
+}
+
 .question-description {
 max-width: 960px;
 font-size: 1.25rem;
@@ -144,6 +160,55 @@ padding: 0.52rem 0.75rem;
 box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
 }
 
+.oasis-steps {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 1rem;
+margin-top: 1.8rem;
+}
+
+.oasis-step {
+min-width: 0;
+padding: 1.15rem;
+background: #f8fafc;
+border: 1px solid #dfe7f1;
+border-radius: 10px;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+.oasis-step-index {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+font-size: 0.72rem;
+line-height: 1;
+font-weight: 800;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.1);
+border: 1px solid rgba(79, 107, 220, 0.16);
+border-radius: 999px;
+margin-bottom: 0.85rem;
+}
+
+.oasis-step strong {
+display: block;
+font-family: 'Google Sans', sans-serif;
+font-size: 1.12rem;
+line-height: 1.25;
+font-weight: 800;
+color: #1f2937;
+margin-bottom: 0.45rem;
+}
+
+.oasis-step p {
+font-size: 0.94rem;
+line-height: 1.55;
+color: #53627c;
+margin-bottom: 0;
+}
+
 @media screen and (max-width: 768px) {
 .question-section {
 padding-top: 4rem;
@@ -159,6 +224,10 @@ font-size: 1.05rem;
 }
 
 .question-criteria {
+grid-template-columns: 1fr;
+}
+
+.oasis-steps {
 grid-template-columns: 1fr;
 }
 

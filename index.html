@@ -521,6 +521,8 @@
   <section class="section question-section" id="what-is-video-oasis">
     <div class="container is-max-desktop">
       <div class="question-content">
+        <span class="question-kicker">Diagnostic pipeline</span>
+
         <h2 class="question-title">
           <span class="highlight-word">What</span> is Video-Oasis?
         </h2>
@@ -528,6 +530,24 @@
         <p class="question-description">
           Video-Oasis turns the question “what should a video benchmark satisfy?” into a diagnostic process. It tests whether each sample truly depends on visual evidence, temporal order, and reliable annotation, rather than shortcut cues. Through this process, Video-Oasis filters out shortcut-solvable cases and distills the remaining samples into video-native challenges for genuine spatio-temporal understanding.
         </p>
+
+        <div class="oasis-steps" aria-label="Video-Oasis diagnostic pipeline">
+          <div class="oasis-step">
+            <span class="oasis-step-index">01</span>
+            <strong>Test</strong>
+            <p>Check visual evidence, temporal order, and annotation reliability.</p>
+          </div>
+          <div class="oasis-step">
+            <span class="oasis-step-index">02</span>
+            <strong>Filter</strong>
+            <p>Remove samples solvable through non-video shortcuts.</p>
+          </div>
+          <div class="oasis-step">
+            <span class="oasis-step-index">03</span>
+            <strong>Distill</strong>
+            <p>Reveal video-native challenges for genuine spatio-temporal understanding.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -538,7 +558,10 @@
         <figure class="graph-figure">
           <img
             src="./static/images/video-oasis.png"
-            alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
+            alt="Overview of the Video-Oasis diagnostic suite.">
+          <figcaption>
+            Overview of the V-Oasis diagnostic suite, from visual-temporal dependency tests to shortcut filtering and video-native challenge distillation.
+          </figcaption>
         </figure>
       </div>
     </div>
