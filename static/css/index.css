@@ -288,6 +288,48 @@ linear-gradient(180deg, #ffffff 0%, #ffffff 58%, #f8fafc 58%, #f8fafc 100%);
 overflow-x: hidden;
 }
 
+.shortcut-overview-section {
+padding-top: 0;
+padding-bottom: 3rem;
+background: #ffffff;
+}
+
+.shortcut-overview-header {
+max-width: 960px;
+margin-bottom: 1.5rem;
+}
+
+.shortcut-overview-figure {
+margin: 0;
+padding: 0.7rem;
+background: #ffffff;
+border: 1px solid #dfe7f1;
+border-radius: 14px;
+box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+overflow: hidden;
+}
+
+.shortcut-overview-figure img {
+display: block;
+width: 100%;
+height: auto;
+}
+
+@media screen and (max-width: 768px) {
+.shortcut-overview-section {
+padding-bottom: 2.5rem;
+}
+
+.shortcut-overview-figure {
+overflow-x: auto;
+}
+
+.shortcut-overview-figure img {
+width: 900px;
+max-width: none;
+}
+}
+
 .shortcut-gallery-header {
 max-width: 960px;
 margin: 0 0 1.75rem 0;

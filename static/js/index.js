@@ -2,140 +2,138 @@ document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".shortcut-card");
   const modal = document.getElementById("shortcut-modal");
 
-  if (!modal || cards.length === 0) {
-    return;
-  }
+  if (modal && cards.length > 0) {
+    const modalImage = document.getElementById("modal-image");
+    const modalVideo = document.getElementById("modal-video");
+    const modalType = document.getElementById("modal-type");
+    const modalBenchmark = document.getElementById("modal-benchmark");
+    const modalQuestion = document.getElementById("modal-question");
+    const modalAnswer = document.getElementById("modal-answer");
+    const modalReason = document.getElementById("modal-reason");
 
-  const modalImage = document.getElementById("modal-image");
-  const modalVideo = document.getElementById("modal-video");
-  const modalType = document.getElementById("modal-type");
-  const modalBenchmark = document.getElementById("modal-benchmark");
-  const modalQuestion = document.getElementById("modal-question");
-  const modalAnswer = document.getElementById("modal-answer");
-  const modalReason = document.getElementById("modal-reason");
+    const closeButton = modal.querySelector(".shortcut-modal-close");
+    const background = modal.querySelector(".shortcut-modal-background");
+    let lastFocusedCard = null;
 
-  const closeButton = modal.querySelector(".shortcut-modal-close");
-  const background = modal.querySelector(".shortcut-modal-background");
-  let lastFocusedCard = null;
-
-  function getCardValue(card, key) {
-    return card.dataset[key] || "";
-  }
-
-  function initializeCardMedia(card) {
-    const mediaType = getCardValue(card, "mediaType") || "image";
-    const mediaSrc = getCardValue(card, "mediaSrc");
-    const wrapper = card.querySelector(".shortcut-card-media-wrapper");
-    const image = wrapper ? wrapper.querySelector("img") : null;
-
-    if (!wrapper || !image || !mediaSrc) {
-      return;
+    function getCardValue(card, key) {
+      return card.dataset[key] || "";
     }
 
-    if (mediaType !== "video") {
-      image.src = mediaSrc;
-      image.alt = getCardValue(card, "benchmark")
-        || getCardValue(card, "question")
-        || "Shortcut case preview";
-      return;
+    function initializeCardMedia(card) {
+      const mediaType = getCardValue(card, "mediaType") || "image";
+      const mediaSrc = getCardValue(card, "mediaSrc");
+      const wrapper = card.querySelector(".shortcut-card-media-wrapper");
+      const image = wrapper ? wrapper.querySelector("img") : null;
+
+      if (!wrapper || !image || !mediaSrc) {
+        return;
+      }
+
+      if (mediaType !== "video") {
+        image.src = mediaSrc;
+        image.alt = getCardValue(card, "benchmark")
+          || getCardValue(card, "question")
+          || "Shortcut case preview";
+        return;
+      }
+
+      const video = document.createElement("video");
+      video.src = mediaSrc;
+      video.poster = getCardValue(card, "poster");
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.setAttribute("aria-hidden", "true");
+      image.replaceWith(video);
+
+      card.addEventListener("mouseenter", function () {
+        video.play().catch(function () {});
+      });
+
+      card.addEventListener("mouseleave", function () {
+        video.pause();
+      });
+
+      card.addEventListener("focus", function () {
+        video.play().catch(function () {});
+      });
+
+      card.addEventListener("blur", function () {
+        video.pause();
+      });
     }
 
-    const video = document.createElement("video");
-    video.src = mediaSrc;
-    video.poster = getCardValue(card, "poster");
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = "metadata";
-    video.setAttribute("aria-hidden", "true");
-    image.replaceWith(video);
+    function openModal(card) {
+      const benchmark = getCardValue(card, "benchmark");
+      const question = getCardValue(card, "question");
+      const type = getCardValue(card, "type");
+      const mediaType = getCardValue(card, "mediaType") || "image";
+      const mediaSrc = getCardValue(card, "mediaSrc");
 
-    card.addEventListener("mouseenter", function () {
-      video.play().catch(function () {});
-    });
+      lastFocusedCard = card;
 
-    card.addEventListener("mouseleave", function () {
-      video.pause();
-    });
+      if (mediaType === "video") {
+        modalImage.hidden = true;
+        modalVideo.hidden = false;
+        modalVideo.poster = getCardValue(card, "poster");
+        modalVideo.src = mediaSrc;
+        modalVideo.load();
+      } else {
+        modalVideo.pause();
+        modalVideo.removeAttribute("src");
+        modalVideo.load();
+        modalVideo.hidden = true;
+        modalImage.hidden = false;
+        modalImage.src = mediaSrc;
+        modalImage.alt = benchmark || question || "Shortcut case preview";
+      }
 
-    card.addEventListener("focus", function () {
-      video.play().catch(function () {});
-    });
+      modalType.textContent = type;
+      modalBenchmark.textContent = benchmark;
+      modalQuestion.textContent = question;
+      modalAnswer.textContent = getCardValue(card, "answer");
+      modalReason.textContent = getCardValue(card, "reason");
 
-    card.addEventListener("blur", function () {
-      video.pause();
-    });
-  }
+      modal.classList.add("is-active");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    }
 
-  function openModal(card) {
-    const benchmark = getCardValue(card, "benchmark");
-    const question = getCardValue(card, "question");
-    const type = getCardValue(card, "type");
-    const mediaType = getCardValue(card, "mediaType") || "image";
-    const mediaSrc = getCardValue(card, "mediaSrc");
-
-    lastFocusedCard = card;
-
-    if (mediaType === "video") {
-      modalImage.hidden = true;
-      modalVideo.hidden = false;
-      modalVideo.poster = getCardValue(card, "poster");
-      modalVideo.src = mediaSrc;
-      modalVideo.load();
-    } else {
+    function closeModal() {
       modalVideo.pause();
-      modalVideo.removeAttribute("src");
-      modalVideo.load();
-      modalVideo.hidden = true;
-      modalImage.hidden = false;
-      modalImage.src = mediaSrc;
-      modalImage.alt = benchmark || question || "Shortcut case preview";
+      modal.classList.remove("is-active");
+      document.body.style.overflow = "";
+
+      if (lastFocusedCard) {
+        lastFocusedCard.focus();
+      }
     }
 
-    modalType.textContent = type;
-    modalBenchmark.textContent = benchmark;
-    modalQuestion.textContent = question;
-    modalAnswer.textContent = getCardValue(card, "answer");
-    modalReason.textContent = getCardValue(card, "reason");
+    cards.forEach(function (card) {
+      initializeCardMedia(card);
 
-    modal.classList.add("is-active");
-    document.body.style.overflow = "hidden";
-    closeButton.focus();
-  }
+      card.addEventListener("click", function () {
+        openModal(card);
+      });
 
-  function closeModal() {
-    modalVideo.pause();
-    modal.classList.remove("is-active");
-    document.body.style.overflow = "";
-
-    if (lastFocusedCard) {
-      lastFocusedCard.focus();
-    }
-  }
-
-  cards.forEach(function (card) {
-    initializeCardMedia(card);
-
-    card.addEventListener("click", function () {
-      openModal(card);
+      card.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openModal(card);
+        }
+      });
     });
 
-    card.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openModal(card);
+    closeButton.addEventListener("click", closeModal);
+    background.addEventListener("click", closeModal);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && modal.classList.contains("is-active")) {
+        closeModal();
       }
     });
-  });
-
-  closeButton.addEventListener("click", closeModal);
-  background.addEventListener("click", closeModal);
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && modal.classList.contains("is-active")) {
-      closeModal();
-    }
-  });
+  }
 
   const insightsRail = document.querySelector(".insights-rail");
   const previousInsightButton = document.querySelector(".insights-control-prev");
