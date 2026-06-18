@@ -302,15 +302,41 @@ gap: 1.5rem;
 margin-bottom: 1.5rem;
 }
 
-.shortcut-scroll-hint {
+.shortcut-overview-controls {
+display: flex;
+align-items: center;
+gap: 0.55rem;
 flex: 0 0 auto;
-font-size: 0.76rem;
-line-height: 1;
-font-weight: 800;
-letter-spacing: 0.05em;
-text-transform: uppercase;
-color: #64748b;
 padding-bottom: 0.9rem;
+}
+
+.shortcut-overview-control {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2.55rem;
+height: 2.55rem;
+padding: 0;
+color: #334155;
+background: #ffffff;
+border: 1px solid #dfe7f1;
+border-radius: 8px;
+cursor: pointer;
+transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.shortcut-overview-control:hover,
+.shortcut-overview-control:focus-visible {
+color: #3149a5;
+border-color: #9fb0f5;
+background: #f8fafc;
+outline: none;
+}
+
+.shortcut-overview-control:disabled {
+color: #cbd5e1;
+background: #f8fafc;
+cursor: default;
 }
 
 .shortcut-overview-rail {
@@ -325,6 +351,21 @@ scroll-padding-inline: 0.1rem;
 padding: 0.15rem 0 0.9rem;
 scrollbar-width: thin;
 scrollbar-color: #a8b5c7 #edf1f6;
+cursor: grab;
+perspective: 1400px;
+perspective-origin: center;
+}
+
+.shortcut-overview-rail:active {
+cursor: grabbing;
+}
+
+.shortcut-overview-rail.is-dragging {
+scroll-snap-type: none;
+}
+
+.shortcut-overview-rail.is-dragging .shortcut-overview-card {
+transition: none;
 }
 
 .shortcut-overview-rail::-webkit-scrollbar {
@@ -356,6 +397,37 @@ border-radius: 14px;
 box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 overflow: hidden;
 scroll-snap-align: start;
+transform-origin: var(--page-origin, center);
+transform:
+translateY(var(--page-lift, 0))
+rotateY(var(--page-angle, 0deg));
+transition:
+transform 0.42s cubic-bezier(0.22, 0.8, 0.22, 1),
+box-shadow 0.42s ease,
+filter 0.42s ease;
+backface-visibility: hidden;
+will-change: transform;
+}
+
+.shortcut-overview-card::after {
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+background: linear-gradient(
+90deg,
+rgba(15, 23, 42, var(--page-shadow-left, 0)) 0%,
+transparent 18%,
+transparent 82%,
+rgba(15, 23, 42, var(--page-shadow-right, 0)) 100%
+);
+transition: background 0.35s ease;
+}
+
+.shortcut-overview-card.is-page-turning {
+--page-lift: -4px;
+box-shadow: 0 22px 44px rgba(15, 23, 42, 0.18);
+filter: saturate(0.98);
 }
 
 .shortcut-overview-card img {
@@ -363,6 +435,8 @@ display: block;
 width: 100%;
 height: auto;
 border-radius: 9px;
+user-select: none;
+-webkit-user-drag: none;
 }
 
 .shortcut-overview-card figcaption {
@@ -392,12 +466,24 @@ flex-direction: column;
 gap: 0;
 }
 
-.shortcut-scroll-hint {
+.shortcut-overview-controls {
 padding-bottom: 0;
 }
 
 .shortcut-overview-rail {
 grid-auto-columns: minmax(270px, 82%);
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.shortcut-overview-rail {
+scroll-behavior: auto;
+}
+
+.shortcut-overview-card,
+.shortcut-overview-card::after {
+transition: none;
+transform: none;
 }
 }
 

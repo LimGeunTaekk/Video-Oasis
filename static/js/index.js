@@ -135,6 +135,163 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  const shortcutRail = document.querySelector(".shortcut-overview-rail");
+  const previousShortcutButton = document.querySelector(".shortcut-overview-prev");
+  const nextShortcutButton = document.querySelector(".shortcut-overview-next");
+
+  if (shortcutRail && previousShortcutButton && nextShortcutButton) {
+    const shortcutCards = Array.from(shortcutRail.querySelectorAll(".shortcut-overview-card"));
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let isDraggingShortcut = false;
+    let shortcutDragStartX = 0;
+    let shortcutDragStartScrollLeft = 0;
+    let shortcutTurnTimer = null;
+    let shortcutWheelLocked = false;
+
+    function getShortcutScrollAmount() {
+      const card = shortcutCards[0];
+      const styles = window.getComputedStyle(shortcutRail);
+      const gap = parseFloat(styles.columnGap) || 0;
+
+      return card ? card.getBoundingClientRect().width + gap : shortcutRail.clientWidth;
+    }
+
+    function getCurrentShortcutIndex() {
+      const amount = getShortcutScrollAmount();
+
+      return amount ? Math.round(shortcutRail.scrollLeft / amount) : 0;
+    }
+
+    function updateShortcutPages() {
+      const railRect = shortcutRail.getBoundingClientRect();
+      const scrollAmount = getShortcutScrollAmount();
+
+      shortcutCards.forEach(function (card) {
+        if (reduceMotion.matches) {
+          card.style.removeProperty("--page-angle");
+          card.style.removeProperty("--page-origin");
+          card.style.removeProperty("--page-shadow-left");
+          card.style.removeProperty("--page-shadow-right");
+          return;
+        }
+
+        const cardRect = card.getBoundingClientRect();
+        const distance = Math.max(-1, Math.min(1, (cardRect.left - railRect.left) / scrollAmount));
+        const angle = distance * -5;
+        const shadowStrength = Math.abs(distance) * 0.12;
+
+        card.style.setProperty("--page-angle", angle.toFixed(2) + "deg");
+        card.style.setProperty("--page-origin", distance < 0 ? "right center" : "left center");
+        card.style.setProperty("--page-shadow-left", distance > 0 ? shadowStrength.toFixed(3) : "0");
+        card.style.setProperty("--page-shadow-right", distance < 0 ? shadowStrength.toFixed(3) : "0");
+      });
+
+      const maxScrollLeft = shortcutRail.scrollWidth - shortcutRail.clientWidth;
+      previousShortcutButton.disabled = shortcutRail.scrollLeft <= 2;
+      nextShortcutButton.disabled = shortcutRail.scrollLeft >= maxScrollLeft - 2;
+    }
+
+    function turnShortcutPage(direction) {
+      const currentIndex = Math.max(0, Math.min(shortcutCards.length - 1, getCurrentShortcutIndex()));
+      const currentCard = shortcutCards[currentIndex];
+
+      window.clearTimeout(shortcutTurnTimer);
+      currentCard.classList.add("is-page-turning");
+
+      shortcutRail.scrollBy({
+        left: direction * getShortcutScrollAmount(),
+        behavior: reduceMotion.matches ? "auto" : "smooth"
+      });
+
+      shortcutTurnTimer = window.setTimeout(function () {
+        currentCard.classList.remove("is-page-turning");
+      }, 480);
+    }
+
+    previousShortcutButton.addEventListener("click", function () {
+      turnShortcutPage(-1);
+    });
+
+    nextShortcutButton.addEventListener("click", function () {
+      turnShortcutPage(1);
+    });
+
+    shortcutRail.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        turnShortcutPage(event.key === "ArrowLeft" ? -1 : 1);
+      }
+    });
+
+    shortcutRail.addEventListener("wheel", function (event) {
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY)
+        ? event.deltaX
+        : event.deltaY;
+
+      if (Math.abs(delta) < 8) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (shortcutWheelLocked) {
+        return;
+      }
+
+      shortcutWheelLocked = true;
+      turnShortcutPage(delta > 0 ? 1 : -1);
+
+      window.setTimeout(function () {
+        shortcutWheelLocked = false;
+      }, 520);
+    }, { passive: false });
+
+    shortcutRail.addEventListener("pointerdown", function (event) {
+      if (event.pointerType === "touch") {
+        return;
+      }
+
+      isDraggingShortcut = true;
+      shortcutDragStartX = event.clientX;
+      shortcutDragStartScrollLeft = shortcutRail.scrollLeft;
+      shortcutRail.classList.add("is-dragging");
+      shortcutRail.setPointerCapture(event.pointerId);
+    });
+
+    shortcutRail.addEventListener("pointermove", function (event) {
+      if (!isDraggingShortcut) {
+        return;
+      }
+
+      shortcutRail.scrollLeft = shortcutDragStartScrollLeft - (event.clientX - shortcutDragStartX);
+    });
+
+    function stopShortcutDragging(event) {
+      if (!isDraggingShortcut) {
+        return;
+      }
+
+      isDraggingShortcut = false;
+      shortcutRail.classList.remove("is-dragging");
+
+      if (shortcutRail.hasPointerCapture(event.pointerId)) {
+        shortcutRail.releasePointerCapture(event.pointerId);
+      }
+
+      const targetIndex = Math.max(0, Math.min(shortcutCards.length - 1, getCurrentShortcutIndex()));
+      shortcutRail.scrollTo({
+        left: targetIndex * getShortcutScrollAmount(),
+        behavior: reduceMotion.matches ? "auto" : "smooth"
+      });
+    }
+
+    shortcutRail.addEventListener("pointerup", stopShortcutDragging);
+    shortcutRail.addEventListener("pointercancel", stopShortcutDragging);
+    shortcutRail.addEventListener("scroll", updateShortcutPages);
+    window.addEventListener("resize", updateShortcutPages);
+    updateShortcutPages();
+  }
+
   const insightsRail = document.querySelector(".insights-rail");
   const previousInsightButton = document.querySelector(".insights-control-prev");
   const nextInsightButton = document.querySelector(".insights-control-next");
