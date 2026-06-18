@@ -1135,6 +1135,11 @@ font-weight: 700;
 color: #1f2937;
 }
 
+.results-table tbody td {
+text-align: center;
+font-variant-numeric: tabular-nums;
+}
+
 .results-table tbody tr:not(.results-group):hover {
 background: #f8fafc;
 }
