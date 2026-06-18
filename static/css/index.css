@@ -316,7 +316,7 @@ padding-bottom: 0.9rem;
 .shortcut-overview-rail {
 display: grid;
 grid-auto-flow: column;
-grid-auto-columns: minmax(620px, 72%);
+grid-auto-columns: minmax(500px, 56%);
 gap: 1rem;
 overflow-x: auto;
 overscroll-behavior-inline: contain;
@@ -349,7 +349,7 @@ outline-offset: 4px;
 .shortcut-overview-card {
 position: relative;
 margin: 0;
-padding: 0.55rem;
+padding: 0.45rem;
 background: #ffffff;
 border: 1px solid #dfe7f1;
 border-radius: 14px;
@@ -397,7 +397,7 @@ padding-bottom: 0;
 }
 
 .shortcut-overview-rail {
-grid-auto-columns: minmax(290px, 88%);
+grid-auto-columns: minmax(270px, 82%);
 }
 }
 
