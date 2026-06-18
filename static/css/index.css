@@ -1370,16 +1370,6 @@ color: #53627c;
 margin-bottom: 0;
 }
 
-.insight-panel-summary {
-background: #f1f5f9;
-border-color: #cbd5e1;
-}
-
-.insight-panel-summary .insight-panel-metric {
-font-size: 1.35rem;
-color: #1f2937;
-}
-
 @media screen and (max-width: 768px) {
 .challenge-section {
 padding-top: 2rem;
