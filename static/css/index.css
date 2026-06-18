@@ -1317,7 +1317,7 @@ outline-offset: 4px;
 
 .insight-panel {
 min-width: 0;
-min-height: 265px;
+min-height: 430px;
 padding: 1.3rem;
 background: #f8fafc;
 border: 1px solid #dfe7f1;
@@ -1325,6 +1325,15 @@ border-radius: 10px;
 box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
 scroll-snap-align: start;
 user-select: none;
+display: flex;
+flex-direction: column;
+}
+
+.insight-panel-topline {
+display: flex;
+align-items: center;
+gap: 0.7rem;
+margin-bottom: 1rem;
 }
 
 .insight-panel-index {
@@ -1340,7 +1349,7 @@ color: #4f6bdc;
 background: rgba(79, 107, 220, 0.1);
 border: 1px solid rgba(79, 107, 220, 0.16);
 border-radius: 999px;
-margin-bottom: 1rem;
+flex: 0 0 auto;
 }
 
 .insight-panel-label {
@@ -1351,33 +1360,75 @@ font-weight: 800;
 letter-spacing: 0.08em;
 text-transform: uppercase;
 color: #64748b;
-margin-bottom: 0.55rem;
 }
 
 .insight-panel h3 {
 font-family: 'Google Sans', sans-serif;
-font-size: 1.3rem;
+font-size: 1.22rem;
 line-height: 1.25;
 font-weight: 800;
 color: #1f2937;
 margin-bottom: 1rem;
 }
 
-.insight-panel-metric {
-display: block;
-font-family: 'Google Sans', sans-serif;
-font-size: 1.8rem;
-line-height: 1.15;
-font-weight: 800;
-color: #4f6bdc;
-margin-bottom: 0.85rem;
+.insight-evidence {
+display: grid;
+gap: 0.55rem;
+margin-bottom: 1rem;
 }
 
-.insight-panel p {
-font-size: 0.98rem;
-line-height: 1.55;
-color: #53627c;
+.insight-evidence-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.insight-evidence > div {
+min-width: 0;
+padding: 0.72rem;
+background: #ffffff;
+border: 1px solid #dfe7f1;
+border-radius: 8px;
+}
+
+.insight-evidence span {
+display: block;
+font-size: 0.66rem;
+line-height: 1.25;
+font-weight: 800;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #64748b;
+margin-bottom: 0.35rem;
+}
+
+.insight-evidence strong {
+display: block;
+font-family: 'Google Sans', sans-serif;
+font-size: 1.08rem;
+line-height: 1.2;
+font-weight: 800;
+color: #4f6bdc;
+overflow-wrap: anywhere;
+}
+
+.insight-takeaway {
+font-size: 0.9rem;
+line-height: 1.5;
+color: #475569;
+border-top: 1px solid #dfe7f1;
+padding-top: 0.85rem;
+margin-top: auto;
 margin-bottom: 0;
+}
+
+.insight-takeaway span {
+display: block;
+font-size: 0.66rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+margin-bottom: 0.4rem;
 }
 
 @media screen and (max-width: 768px) {
