@@ -34,13 +34,31 @@ padding-bottom: 0;
 background: #ffffff;
 }
 
+.tldr-content {
+max-width: 960px;
+border-left: 4px solid #4f6bdc;
+padding: 0.15rem 0 0.15rem 1.15rem;
+margin-bottom: 1.2rem;
+}
+
+.tldr-label {
+display: block;
+font-size: 0.76rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+margin-bottom: 0.55rem;
+}
+
 .tldr-text {
 max-width: 960px;
 font-family: 'Google Sans', sans-serif;
 font-size: 1.25rem;
 line-height: 1.6;
 color: #334155;
-margin-bottom: 1.2rem;
+margin-bottom: 0;
 }
 
 .tldr-text strong {
