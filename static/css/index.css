@@ -12,6 +12,16 @@ body {
     font-family: 'Google Sans', sans-serif;
 }
 
+.publication-venue {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #dc2626;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
 }
