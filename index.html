@@ -172,15 +172,44 @@
   <section class="section shortcut-overview-section" id="shortcut-examples">
     <div class="container is-max-widescreen">
       <div class="shortcut-overview-header">
-        <span class="shortcut-gallery-kicker">Diagnostic cases</span>
-        <h2 class="shortcut-gallery-title">Examples of Non-Video Shortcut Problems</h2>
+        <div>
+          <span class="shortcut-gallery-kicker">Diagnostic cases</span>
+          <h2 class="shortcut-gallery-title">Examples of Non-Video Shortcut Problems</h2>
+        </div>
+        <span class="shortcut-scroll-hint">Scroll to explore →</span>
       </div>
 
-      <figure class="shortcut-overview-figure">
-        <img
-          src="./static/images/shortcut.png"
-          alt="Examples of common-sense prior, document understanding, single-frame understanding, and static-context shortcuts in video benchmarks.">
-      </figure>
+      <div class="shortcut-overview-rail" tabindex="0" aria-label="Scrollable non-video shortcut examples">
+        <figure class="shortcut-overview-card">
+          <img src="./static/images/shortcut/shortcut1.png" alt="Visual-dependency shortcut based on world knowledge.">
+          <figcaption>Case 01</figcaption>
+        </figure>
+
+        <figure class="shortcut-overview-card">
+          <img src="./static/images/shortcut/shortcut2.png" alt="Visual-dependency shortcut based on dataset bias.">
+          <figcaption>Case 02</figcaption>
+        </figure>
+
+        <figure class="shortcut-overview-card">
+          <img src="./static/images/shortcut/shortcut3.png" alt="Visual-dependency shortcut based on document understanding.">
+          <figcaption>Case 03</figcaption>
+        </figure>
+
+        <figure class="shortcut-overview-card">
+          <img src="./static/images/shortcut/shortcut4.png" alt="Temporal-dependency shortcut lacking dynamic evidence.">
+          <figcaption>Case 04</figcaption>
+        </figure>
+
+        <figure class="shortcut-overview-card">
+          <img src="./static/images/shortcut/shortcut5.png" alt="Temporal-dependency shortcut based on static weather evidence.">
+          <figcaption>Case 05</figcaption>
+        </figure>
+
+        <figure class="shortcut-overview-card">
+          <img src="./static/images/shortcut/shortcut6.png" alt="Temporal-dependency shortcut invariant to event order.">
+          <figcaption>Case 06</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 

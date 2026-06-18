@@ -295,24 +295,90 @@ background: #ffffff;
 }
 
 .shortcut-overview-header {
-max-width: 960px;
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 1.5rem;
 margin-bottom: 1.5rem;
 }
 
-.shortcut-overview-figure {
+.shortcut-scroll-hint {
+flex: 0 0 auto;
+font-size: 0.76rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: #64748b;
+padding-bottom: 0.9rem;
+}
+
+.shortcut-overview-rail {
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: minmax(620px, 72%);
+gap: 1rem;
+overflow-x: auto;
+overscroll-behavior-inline: contain;
+scroll-snap-type: inline mandatory;
+scroll-padding-inline: 0.1rem;
+padding: 0.15rem 0 0.9rem;
+scrollbar-width: thin;
+scrollbar-color: #a8b5c7 #edf1f6;
+}
+
+.shortcut-overview-rail::-webkit-scrollbar {
+height: 8px;
+}
+
+.shortcut-overview-rail::-webkit-scrollbar-track {
+background: #edf1f6;
+border-radius: 999px;
+}
+
+.shortcut-overview-rail::-webkit-scrollbar-thumb {
+background: #a8b5c7;
+border-radius: 999px;
+}
+
+.shortcut-overview-rail:focus-visible {
+outline: 3px solid rgba(79, 107, 220, 0.24);
+outline-offset: 4px;
+}
+
+.shortcut-overview-card {
+position: relative;
 margin: 0;
-padding: 0.7rem;
+padding: 0.55rem;
 background: #ffffff;
 border: 1px solid #dfe7f1;
 border-radius: 14px;
 box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 overflow: hidden;
+scroll-snap-align: start;
 }
 
-.shortcut-overview-figure img {
+.shortcut-overview-card img {
 display: block;
 width: 100%;
 height: auto;
+border-radius: 9px;
+}
+
+.shortcut-overview-card figcaption {
+position: absolute;
+right: 1rem;
+bottom: 1rem;
+font-size: 0.68rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: #475569;
+background: rgba(255, 255, 255, 0.9);
+border: 1px solid rgba(148, 163, 184, 0.32);
+border-radius: 999px;
+padding: 0.42rem 0.62rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -320,13 +386,18 @@ height: auto;
 padding-bottom: 2.5rem;
 }
 
-.shortcut-overview-figure {
-overflow-x: auto;
+.shortcut-overview-header {
+align-items: flex-start;
+flex-direction: column;
+gap: 0;
 }
 
-.shortcut-overview-figure img {
-width: 900px;
-max-width: none;
+.shortcut-scroll-hint {
+padding-bottom: 0;
+}
+
+.shortcut-overview-rail {
+grid-auto-columns: minmax(290px, 88%);
 }
 }
 
