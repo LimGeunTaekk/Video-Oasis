@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const modalImage = document.getElementById("modal-image");
+  const modalVideo = document.getElementById("modal-video");
   const modalType = document.getElementById("modal-type");
   const modalBenchmark = document.getElementById("modal-benchmark");
   const modalQuestion = document.getElementById("modal-question");
@@ -21,15 +22,76 @@ document.addEventListener("DOMContentLoaded", function () {
     return card.dataset[key] || "";
   }
 
+  function initializeCardMedia(card) {
+    const mediaType = getCardValue(card, "mediaType") || "image";
+    const mediaSrc = getCardValue(card, "mediaSrc");
+    const wrapper = card.querySelector(".shortcut-card-media-wrapper");
+    const image = wrapper ? wrapper.querySelector("img") : null;
+
+    if (!wrapper || !image || !mediaSrc) {
+      return;
+    }
+
+    if (mediaType !== "video") {
+      image.src = mediaSrc;
+      image.alt = getCardValue(card, "benchmark")
+        || getCardValue(card, "question")
+        || "Shortcut case preview";
+      return;
+    }
+
+    const video = document.createElement("video");
+    video.src = mediaSrc;
+    video.poster = getCardValue(card, "poster");
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.setAttribute("aria-hidden", "true");
+    image.replaceWith(video);
+
+    card.addEventListener("mouseenter", function () {
+      video.play().catch(function () {});
+    });
+
+    card.addEventListener("mouseleave", function () {
+      video.pause();
+    });
+
+    card.addEventListener("focus", function () {
+      video.play().catch(function () {});
+    });
+
+    card.addEventListener("blur", function () {
+      video.pause();
+    });
+  }
+
   function openModal(card) {
     const benchmark = getCardValue(card, "benchmark");
     const question = getCardValue(card, "question");
     const type = getCardValue(card, "type");
+    const mediaType = getCardValue(card, "mediaType") || "image";
+    const mediaSrc = getCardValue(card, "mediaSrc");
 
     lastFocusedCard = card;
 
-    modalImage.src = getCardValue(card, "image");
-    modalImage.alt = benchmark || question || "Shortcut case preview";
+    if (mediaType === "video") {
+      modalImage.hidden = true;
+      modalVideo.hidden = false;
+      modalVideo.poster = getCardValue(card, "poster");
+      modalVideo.src = mediaSrc;
+      modalVideo.load();
+    } else {
+      modalVideo.pause();
+      modalVideo.removeAttribute("src");
+      modalVideo.load();
+      modalVideo.hidden = true;
+      modalImage.hidden = false;
+      modalImage.src = mediaSrc;
+      modalImage.alt = benchmark || question || "Shortcut case preview";
+    }
+
     modalType.textContent = type;
     modalBenchmark.textContent = benchmark;
     modalQuestion.textContent = question;
@@ -42,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function closeModal() {
+    modalVideo.pause();
     modal.classList.remove("is-active");
     document.body.style.overflow = "";
 
@@ -51,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   cards.forEach(function (card) {
+    initializeCardMedia(card);
+
     card.addEventListener("click", function () {
       openModal(card);
     });

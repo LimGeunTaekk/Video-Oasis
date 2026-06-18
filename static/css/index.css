@@ -365,7 +365,7 @@ outline: 3px solid rgba(79, 107, 220, 0.28);
 outline-offset: 3px;
 }
 
-.shortcut-card-image-wrapper {
+.shortcut-card-media-wrapper {
 position: relative;
 width: 100%;
 height: 155px;
@@ -374,12 +374,17 @@ overflow: hidden;
 border-bottom: 1px solid #e5eaf2;
 }
 
-.shortcut-card-image-wrapper img {
+.shortcut-card-media-wrapper img,
+.shortcut-card-media-wrapper video {
 width: 100%;
 height: 100%;
 object-fit: contain;
 display: block;
 padding: 0.65rem;
+}
+
+.shortcut-card-media-wrapper video {
+background: #111827;
 }
 
 .shortcut-card-overlay {
@@ -489,7 +494,7 @@ grid-template-columns: 1fr;
 max-width: 360px;
 }
 
-.shortcut-card-image-wrapper {
+.shortcut-card-media-wrapper {
 height: 180px;
 }
 
@@ -550,7 +555,7 @@ display: grid;
 grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
 }
 
-.shortcut-modal-image-wrapper {
+.shortcut-modal-media-wrapper {
 position: relative;
 background: #eef2f7;
 min-height: 420px;
@@ -559,7 +564,8 @@ align-items: center;
 justify-content: center;
 }
 
-.shortcut-modal-image-wrapper img {
+.shortcut-modal-media-wrapper img,
+.shortcut-modal-media-wrapper video {
 width: 100%;
 height: 100%;
 min-height: 420px;
@@ -568,7 +574,16 @@ display: block;
 padding: 1rem;
 }
 
-.shortcut-modal-image-caption {
+.shortcut-modal-media-wrapper video {
+background: #111827;
+padding: 0;
+}
+
+.shortcut-modal-media-wrapper [hidden] {
+display: none;
+}
+
+.shortcut-modal-media-caption {
 position: absolute;
 left: 1rem;
 bottom: 1rem;
@@ -679,8 +694,9 @@ margin-bottom: 0;
 grid-template-columns: 1fr;
 }
 
-.shortcut-modal-image-wrapper,
-.shortcut-modal-image-wrapper img {
+.shortcut-modal-media-wrapper,
+.shortcut-modal-media-wrapper img,
+.shortcut-modal-media-wrapper video {
 min-height: 260px;
 }
 
