@@ -1431,6 +1431,133 @@ color: #4f6bdc;
 margin-bottom: 0.4rem;
 }
 
+.insight-panel-training {
+min-height: 590px;
+}
+
+.training-context {
+font-size: 0.72rem;
+line-height: 1.4;
+font-weight: 700;
+color: #64748b;
+background: rgba(79, 107, 220, 0.07);
+border-left: 3px solid #8295e6;
+padding: 0.5rem 0.65rem;
+margin: -0.25rem 0 0.8rem;
+}
+
+.training-comparisons {
+display: grid;
+gap: 0.65rem;
+}
+
+.training-comparison {
+padding: 0.72rem;
+background: #ffffff;
+border: 1px solid #dfe7f1;
+border-radius: 8px;
+}
+
+.training-comparison-label,
+.training-tradeoff > span {
+display: block;
+font-size: 0.65rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.07em;
+text-transform: uppercase;
+color: #64748b;
+margin-bottom: 0.55rem;
+}
+
+.training-score-flow {
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+align-items: center;
+gap: 0.35rem;
+}
+
+.training-score-flow-three {
+grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+.training-score-flow > div {
+min-width: 0;
+padding: 0.52rem 0.45rem;
+text-align: center;
+background: #f8fafc;
+border: 1px solid #e5ebf3;
+border-radius: 6px;
+}
+
+.training-score-flow > div.training-score-highlight {
+background: rgba(79, 107, 220, 0.08);
+border-color: rgba(79, 107, 220, 0.24);
+}
+
+.training-score-flow div span {
+display: block;
+min-height: 2.4em;
+font-size: 0.59rem;
+line-height: 1.2;
+font-weight: 800;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+color: #64748b;
+margin-bottom: 0.25rem;
+}
+
+.training-score-flow strong {
+display: block;
+font-family: 'Google Sans', sans-serif;
+font-size: 1rem;
+line-height: 1;
+font-weight: 800;
+color: #4f6bdc;
+}
+
+.training-arrow {
+font-size: 0.85rem;
+font-weight: 800;
+color: #94a3b8;
+}
+
+.training-comparison > p {
+font-size: 0.76rem;
+line-height: 1.4;
+color: #64748b;
+margin: 0.55rem 0 0;
+}
+
+.training-tradeoff {
+padding: 0.65rem 0.72rem;
+margin-top: 0.65rem;
+background: #eef6ff;
+border: 1px solid #d8e8fb;
+border-radius: 8px;
+}
+
+.training-tradeoff > span {
+color: #42619f;
+margin-bottom: 0.35rem;
+}
+
+.training-tradeoff p {
+font-size: 0.76rem;
+line-height: 1.4;
+color: #475569;
+margin: 0;
+}
+
+.training-tradeoff strong {
+color: #3149a5;
+white-space: nowrap;
+}
+
+.insight-panel-training .insight-takeaway {
+margin-top: 0.8rem;
+}
+
 @media screen and (max-width: 768px) {
 .challenge-section {
 padding-top: 2rem;
@@ -1494,5 +1621,19 @@ padding-top: 2.05rem;
 
 .insights-rail {
 grid-auto-columns: minmax(270px, 88%);
+}
+
+.insight-panel-training {
+min-height: 610px;
+}
+
+.training-score-flow,
+.training-score-flow-three {
+gap: 0.25rem;
+}
+
+.training-score-flow > div {
+padding-right: 0.3rem;
+padding-left: 0.3rem;
 }
 }

@@ -845,33 +845,68 @@
             </p>
           </article>
 
-          <article class="insight-panel">
+          <article class="insight-panel insight-panel-training">
             <div class="insight-panel-topline">
               <span class="insight-panel-index">03</span>
               <span class="insight-panel-label">Training Paradigms</span>
             </div>
-            <h3>Is there a single best training strategy?</h3>
-            <div class="insight-evidence insight-evidence-grid">
-              <div>
-                <span>Qwen2.5-VL baseline</span>
-                <strong>29.1</strong>
+
+            <h3>What matters more: the training paradigm or its design?</h3>
+
+            <p class="training-context">
+              Controlled comparison with the same Qwen2.5-VL base model
+            </p>
+
+            <div class="training-comparisons">
+              <div class="training-comparison">
+                <span class="training-comparison-label">Long-context SFT</span>
+                <div class="training-score-flow">
+                  <div>
+                    <span>Baseline</span>
+                    <strong>29.1</strong>
+                  </div>
+                  <span class="training-arrow" aria-hidden="true">→</span>
+                  <div class="training-score-highlight">
+                    <span>Eagle2.5</span>
+                    <strong>34.5</strong>
+                  </div>
+                </div>
+                <p>Long-context optimization produces a strong overall gain.</p>
               </div>
-              <div>
-                <span>Eagle2.5 long-context SFT</span>
-                <strong>34.5</strong>
-              </div>
-              <div>
-                <span>Video-R1 with QA reward</span>
-                <strong>26.3</strong>
-              </div>
-              <div>
-                <span>VideoAuto-R1 with QA + grounding</span>
-                <strong>32.7</strong>
+
+              <div class="training-comparison">
+                <span class="training-comparison-label">RLVR reward design</span>
+                <div class="training-score-flow training-score-flow-three">
+                  <div>
+                    <span>QA only</span>
+                    <strong>26.3</strong>
+                  </div>
+                  <span class="training-arrow" aria-hidden="true">&lt;</span>
+                  <div>
+                    <span>Baseline</span>
+                    <strong>29.1</strong>
+                  </div>
+                  <span class="training-arrow" aria-hidden="true">&lt;</span>
+                  <div class="training-score-highlight">
+                    <span>QA + grounding</span>
+                    <strong>32.7</strong>
+                  </div>
+                </div>
+                <p>RLVR helps only when its reward captures grounded video reasoning.</p>
               </div>
             </div>
+
+            <div class="training-tradeoff">
+              <span>Complementary strength</span>
+              <p>
+                RLVR yields the larger Global Narrative gain:
+                <strong>21.2 → 28.6</strong>.
+              </p>
+            </div>
+
             <p class="insight-takeaway">
               <span>Takeaway</span>
-              SFT and RLVR offer complementary strengths, while reward design determines whether RLVR succeeds.
+              There is no universally superior paradigm: optimization quality and reward design matter more than the SFT-versus-RLVR label alone.
             </p>
           </article>
         </div>
