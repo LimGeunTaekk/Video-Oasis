@@ -1183,6 +1183,203 @@ color: #4f6bdc;
 border-bottom: 0;
 }
 
+.insights-section {
+padding-top: 1rem;
+padding-bottom: 4.5rem;
+background: #ffffff;
+overflow: hidden;
+}
+
+.insights-content {
+max-width: 960px;
+margin-left: 0;
+margin-right: auto;
+}
+
+.insights-header {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 1.5rem;
+}
+
+.insights-kicker {
+display: inline-flex;
+align-items: center;
+font-size: 0.76rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.1);
+border: 1px solid rgba(79, 107, 220, 0.16);
+border-radius: 999px;
+padding: 0.45rem 0.7rem;
+margin-bottom: 0.8rem;
+}
+
+.insights-title {
+font-family: 'Google Sans', sans-serif;
+font-size: 2.35rem;
+line-height: 1.15;
+font-weight: 800;
+letter-spacing: -0.035em;
+color: #1f2937;
+margin-bottom: 0;
+}
+
+.insights-description {
+max-width: 800px;
+font-size: 1.18rem;
+line-height: 1.65;
+color: #53627c;
+margin-top: 0.9rem;
+margin-bottom: 1.5rem;
+}
+
+.insights-controls {
+display: flex;
+gap: 0.5rem;
+flex: 0 0 auto;
+padding-bottom: 0.15rem;
+}
+
+.insights-control {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2.55rem;
+height: 2.55rem;
+padding: 0;
+color: #334155;
+background: #ffffff;
+border: 1px solid #dfe7f1;
+border-radius: 8px;
+cursor: pointer;
+transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.insights-control:hover,
+.insights-control:focus-visible {
+color: #3149a5;
+border-color: #9fb0f5;
+background: #f8fafc;
+outline: none;
+}
+
+.insights-control:disabled {
+color: #cbd5e1;
+background: #f8fafc;
+cursor: default;
+}
+
+.insights-rail {
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: minmax(300px, calc((100% - 1rem) / 2.2));
+gap: 1rem;
+overflow-x: auto;
+overscroll-behavior-inline: contain;
+scroll-snap-type: inline mandatory;
+scroll-behavior: smooth;
+scrollbar-width: none;
+cursor: grab;
+padding: 0.15rem 0 0.75rem;
+}
+
+.insights-rail::-webkit-scrollbar {
+display: none;
+}
+
+.insights-rail:active {
+cursor: grabbing;
+}
+
+.insights-rail.is-dragging {
+scroll-snap-type: none;
+}
+
+.insights-rail:focus-visible {
+outline: 3px solid rgba(79, 107, 220, 0.24);
+outline-offset: 4px;
+}
+
+.insight-panel {
+min-width: 0;
+min-height: 265px;
+padding: 1.3rem;
+background: #f8fafc;
+border: 1px solid #dfe7f1;
+border-radius: 10px;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+scroll-snap-align: start;
+user-select: none;
+}
+
+.insight-panel-index {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+font-size: 0.72rem;
+line-height: 1;
+font-weight: 800;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.1);
+border: 1px solid rgba(79, 107, 220, 0.16);
+border-radius: 999px;
+margin-bottom: 1rem;
+}
+
+.insight-panel-label {
+display: block;
+font-size: 0.72rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #64748b;
+margin-bottom: 0.55rem;
+}
+
+.insight-panel h3 {
+font-family: 'Google Sans', sans-serif;
+font-size: 1.3rem;
+line-height: 1.25;
+font-weight: 800;
+color: #1f2937;
+margin-bottom: 1rem;
+}
+
+.insight-panel-metric {
+display: block;
+font-family: 'Google Sans', sans-serif;
+font-size: 1.8rem;
+line-height: 1.15;
+font-weight: 800;
+color: #4f6bdc;
+margin-bottom: 0.85rem;
+}
+
+.insight-panel p {
+font-size: 0.98rem;
+line-height: 1.55;
+color: #53627c;
+margin-bottom: 0;
+}
+
+.insight-panel-summary {
+background: #f1f5f9;
+border-color: #cbd5e1;
+}
+
+.insight-panel-summary .insight-panel-metric {
+font-size: 1.35rem;
+color: #1f2937;
+}
+
 @media screen and (max-width: 768px) {
 .challenge-section {
 padding-top: 2rem;
@@ -1221,5 +1418,30 @@ font-size: 1.9rem;
 
 .results-description {
 font-size: 1rem;
+}
+
+.insights-section {
+padding-top: 2rem;
+padding-bottom: 4rem;
+}
+
+.insights-header {
+align-items: flex-start;
+}
+
+.insights-title {
+font-size: 1.9rem;
+}
+
+.insights-description {
+font-size: 1rem;
+}
+
+.insights-controls {
+padding-top: 2.05rem;
+}
+
+.insights-rail {
+grid-auto-columns: minmax(270px, 88%);
 }
 }

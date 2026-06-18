@@ -71,4 +71,82 @@ document.addEventListener("DOMContentLoaded", function () {
       closeModal();
     }
   });
+
+  const insightsRail = document.querySelector(".insights-rail");
+  const previousInsightButton = document.querySelector(".insights-control-prev");
+  const nextInsightButton = document.querySelector(".insights-control-next");
+
+  if (insightsRail && previousInsightButton && nextInsightButton) {
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartScrollLeft = 0;
+
+    function getInsightScrollAmount() {
+      const panel = insightsRail.querySelector(".insight-panel");
+      const styles = window.getComputedStyle(insightsRail);
+      const gap = parseFloat(styles.columnGap) || 0;
+
+      return panel ? panel.getBoundingClientRect().width + gap : insightsRail.clientWidth;
+    }
+
+    function updateInsightControls() {
+      const maxScrollLeft = insightsRail.scrollWidth - insightsRail.clientWidth;
+
+      previousInsightButton.disabled = insightsRail.scrollLeft <= 2;
+      nextInsightButton.disabled = insightsRail.scrollLeft >= maxScrollLeft - 2;
+    }
+
+    previousInsightButton.addEventListener("click", function () {
+      insightsRail.scrollBy({
+        left: -getInsightScrollAmount(),
+        behavior: "smooth"
+      });
+    });
+
+    nextInsightButton.addEventListener("click", function () {
+      insightsRail.scrollBy({
+        left: getInsightScrollAmount(),
+        behavior: "smooth"
+      });
+    });
+
+    insightsRail.addEventListener("pointerdown", function (event) {
+      if (event.pointerType === "touch") {
+        return;
+      }
+
+      isDragging = true;
+      dragStartX = event.clientX;
+      dragStartScrollLeft = insightsRail.scrollLeft;
+      insightsRail.classList.add("is-dragging");
+      insightsRail.setPointerCapture(event.pointerId);
+    });
+
+    insightsRail.addEventListener("pointermove", function (event) {
+      if (!isDragging) {
+        return;
+      }
+
+      insightsRail.scrollLeft = dragStartScrollLeft - (event.clientX - dragStartX);
+    });
+
+    function stopInsightDragging(event) {
+      if (!isDragging) {
+        return;
+      }
+
+      isDragging = false;
+      insightsRail.classList.remove("is-dragging");
+
+      if (insightsRail.hasPointerCapture(event.pointerId)) {
+        insightsRail.releasePointerCapture(event.pointerId);
+      }
+    }
+
+    insightsRail.addEventListener("pointerup", stopInsightDragging);
+    insightsRail.addEventListener("pointercancel", stopInsightDragging);
+    insightsRail.addEventListener("scroll", updateInsightControls);
+    window.addEventListener("resize", updateInsightControls);
+    updateInsightControls();
+  }
 });
