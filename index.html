@@ -494,31 +494,31 @@
   <section class="section question-section" id="what-is-video-oasis">
     <div class="container is-max-desktop">
       <div class="question-content">
-        <span class="question-kicker">Diagnostic pipeline</span>
+        <span class="question-kicker">Diagnostic framework</span>
 
         <h2 class="question-title">
           <span class="highlight-word">What</span> is Video-Oasis?
         </h2>
 
         <p class="question-description">
-          Video-Oasis turns the question “what should a video benchmark satisfy?” into a diagnostic process. It tests whether each sample truly depends on visual evidence, temporal order, and reliable annotation, rather than shortcut cues. Through this process, Video-Oasis filters out shortcut-solvable cases and distills the remaining samples into video-native challenges for genuine spatio-temporal understanding.
+          Video-Oasis verifies whether each benchmark sample truly requires visual evidence and temporal context, while resolving ambiguity through human verification. These complementary diagnostics identify shortcut-solvable cases and isolate video-native challenges for genuine spatio-temporal understanding.
         </p>
 
-        <div class="oasis-steps" aria-label="Video-Oasis diagnostic pipeline">
+        <div class="oasis-steps" aria-label="Video-Oasis diagnostic criteria">
           <div class="oasis-step">
             <span class="oasis-step-index">01</span>
-            <strong>Test</strong>
-            <p>Check visual evidence, temporal order, and annotation reliability.</p>
+            <strong>Visual</strong>
+            <p>Verify visual dependency through Blind, Audio, and Narrative tests.</p>
           </div>
           <div class="oasis-step">
             <span class="oasis-step-index">02</span>
-            <strong>Filter</strong>
-            <p>Remove samples solvable through non-video shortcuts.</p>
+            <strong>Temporal</strong>
+            <p>Test temporal dependency with Center-Frame, Frame Shuffling, and Bag-of-Frames.</p>
           </div>
           <div class="oasis-step">
             <span class="oasis-step-index">03</span>
-            <strong>Distill</strong>
-            <p>Reveal video-native spatio-temporal challenges.</p>
+            <strong>Ambiguity</strong>
+            <p>Resolve uncertain samples through Consistency, Redundancy, Sensitivity, and human review.</p>
           </div>
         </div>
       </div>
