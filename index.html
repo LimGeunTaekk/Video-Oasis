@@ -158,13 +158,6 @@
           Video benchmarks are rapidly expanding, but high scores do not always imply genuine video understanding. Many video-QA samples can be answered using language priors, audio cues, captions, or single-frame evidence. Here, we first expose such non-video shortcuts through concrete cases.
         </p>
 
-        <div class="question-shortcuts" aria-label="Common non-video shortcut sources">
-          <span>Language priors</span>
-          <span>Audio cues</span>
-          <span>Text cues</span>
-          <span>Static context</span>
-          <span>Single-frame evidence</span>
-        </div>
       </div>
     </div>
   </section>
@@ -218,7 +211,7 @@
           data-options="A. $4.5 per share.||B. $27 per share.||C. $19.5 per share.||D. $15 per share."
           data-correct="A"
           data-answer="A. $4.5 per share."
-          data-reason="Pure arithmetic over the numbers stated in the text. The video frames provide no evidence needed to compute the tax.">
+          data-reason="This is solved by simple arithmetic from the text alone, so the video frames add no necessary evidence.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 01</figcaption>
         </figure>
@@ -233,7 +226,7 @@
           data-options="A. brown||B. green||C. red||D. cyan"
           data-correct="D"
           data-answer="D. cyan"
-          data-reason="The cube never moves, so a single frame fully reveals its color. No temporal information is required.">
+          data-reason="The cube stays static, so one frame is enough to answer the question without any temporal reasoning.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 02</figcaption>
         </figure>
@@ -247,7 +240,7 @@
           data-options="A. 3||B. 4||C. 5||D. 6"
           data-correct="B"
           data-answer="B. 4"
-          data-reason="Answerable from external world knowledge about the Gucci family. The video itself is never needed (a 'blind video' case).">
+          data-reason="This relies on outside knowledge about the Gucci family rather than visual evidence, making the video unnecessary.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 03</figcaption>
         </figure>
@@ -262,7 +255,7 @@
           data-options="A. Rainy.||B. Sunny.||C. Snow.||D. Gloomy."
           data-correct="B"
           data-answer="B. Sunny."
-          data-reason="The weather is constant across every frame, so any single frame suffices. No temporal reasoning is needed.">
+          data-reason="Because the weather never changes, a single frame is enough and the temporal sequence is irrelevant.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 04</figcaption>
         </figure>
@@ -277,7 +270,7 @@
           data-options="A. Car||B. Basket||C. Shadow of a person||D. Two hands"
           data-correct="D"
           data-answer="D. Two hands"
-          data-reason="The scene content is static throughout the clip; a single frame answers the question.">
+          data-reason="The clip remains visually unchanged, so one frame already provides the answer.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 05</figcaption>
         </figure>
@@ -291,7 +284,7 @@
           data-options="A. Perfect.||B. Need to get progress.||C. Is not appropriate for movie.||D. Can't be worst."
           data-correct="A"
           data-answer="A. Perfect."
-          data-reason="The answer is carried entirely by the audio transcript ('to me is the perfect example'), not the visual stream.">
+          data-reason="The response comes from the spoken transcript, so visual information is not required.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 06</figcaption>
         </figure>
@@ -306,7 +299,7 @@
           data-options="A. The blue mushroom he ate||B. The gorilla used his powers||C. The gorilla crushed him||D. The man in the red hat has the ability to change size naturally||E. The crowd used their powers"
           data-correct="A"
           data-answer="A. The blue mushroom he ate"
-          data-reason="Solvable from Super Mario game priors. The model can guess from dataset and world bias without watching the video.">
+          data-reason="This can be inferred from Super Mario priors and dataset bias, rather than from the video content itself.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 07</figcaption>
         </figure>
@@ -603,11 +596,11 @@
         <span class="graph-kicker">Benchmark-wide pattern</span>
 
         <h2 class="graph-title">
-          High Benchmark Scores, High Shortcut Ratios
+          Hidden Shortcuts Behind High Scores
         </h2>
 
         <p class="graph-description">
-          The shortcut examples above are not rare corner cases. Across 14 video benchmarks spanning spatial perception, temporal understanding, reasoning, and holistic video comprehension, we quantify how often each benchmark can be solved without full visual or temporal dependency. The results show that higher benchmark scores often coincide with higher shortcut solvability, suggesting inflated performance under weak video-native requirements.
+          The shortcut examples above are not rare corner cases. Across 14 benchmarks spanning spatial perception, temporal reasoning, and holistic video understanding, we measure how often each benchmark can be solved without full visual or temporal dependency. Reported accuracy tracks shortcut prevalence closely, implying that strong benchmark scores can be partly driven by examples that do not require robust video understanding.
         </p>
 
         <div class="graph-insights" aria-label="Shortcut ratio analysis summary">
