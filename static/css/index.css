@@ -342,8 +342,8 @@ cursor: default;
 .shortcut-overview-rail {
 display: grid;
 grid-auto-flow: column;
-grid-auto-columns: minmax(500px, 56%);
-gap: 1rem;
+grid-auto-columns: minmax(360px, 33%);
+gap: 1.25rem;
 overflow-x: auto;
 overscroll-behavior-inline: contain;
 scroll-snap-type: inline mandatory;
@@ -391,37 +391,50 @@ outline-offset: 4px;
 position: relative;
 margin: 0;
 padding: 0.45rem;
-background: #ffffff;
-border: 1px solid #dfe7f1;
+cursor: pointer;
+background: #f4f6fa;
+border: 1px solid #e2e8f0;
 border-radius: 14px;
-box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
 overflow: hidden;
 scroll-snap-align: start;
+filter: saturate(0.78);
 transform-origin: var(--page-origin, center);
 transform:
 translateY(var(--page-lift, 0))
 rotateY(var(--page-angle, 0deg));
 transition:
 transform 0.42s cubic-bezier(0.22, 0.8, 0.22, 1),
-box-shadow 0.42s ease,
-filter 0.42s ease;
+box-shadow 0.32s ease,
+border-color 0.32s ease,
+background-color 0.32s ease,
+filter 0.32s ease;
 backface-visibility: hidden;
 will-change: transform;
 }
 
-.shortcut-overview-card::after {
-content: "";
-position: absolute;
-inset: 0;
-pointer-events: none;
-background: linear-gradient(
-90deg,
-rgba(15, 23, 42, var(--page-shadow-left, 0)) 0%,
-transparent 18%,
-transparent 82%,
-rgba(15, 23, 42, var(--page-shadow-right, 0)) 100%
-);
-transition: background 0.35s ease;
+.shortcut-overview-card:hover,
+.shortcut-overview-card:focus-within {
+background: #ffffff;
+border-color: #4f6bdc;
+box-shadow: 0 22px 50px rgba(49, 107, 220, 0.24);
+filter: saturate(1.06);
+}
+
+.shortcut-overview-card:hover .shortcut-overview-card-type,
+.shortcut-overview-card:focus-within .shortcut-overview-card-type {
+background: #4f6bdc;
+color: #ffffff;
+}
+
+.shortcut-overview-card:hover .shortcut-overview-card-q,
+.shortcut-overview-card:focus-within .shortcut-overview-card-q {
+color: #0b1220;
+}
+
+.shortcut-overview-card:focus-visible {
+outline: 3px solid rgba(79, 107, 220, 0.28);
+outline-offset: 3px;
 }
 
 .shortcut-overview-card.is-page-turning {
@@ -437,6 +450,85 @@ height: auto;
 border-radius: 9px;
 user-select: none;
 -webkit-user-drag: none;
+}
+
+/* Content summary shown on each card (category, benchmark, question, answer). */
+.shortcut-overview-card-body {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+height: 100%;
+padding: 0.5rem 0.55rem 1.7rem;
+}
+
+.shortcut-overview-card-top {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.5rem;
+}
+
+.shortcut-overview-card-type {
+font-size: 0.76rem;
+font-weight: 800;
+color: #3149a5;
+background: rgba(49, 73, 165, 0.1);
+border-radius: 999px;
+padding: 0.32rem 0.62rem;
+transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.shortcut-overview-card-bench {
+flex: none;
+font-size: 0.7rem;
+font-weight: 800;
+color: #64748b;
+background: #f1f5f9;
+border: 1px solid #e2e8f0;
+border-radius: 999px;
+padding: 0.28rem 0.55rem;
+}
+
+.shortcut-overview-card-q {
+font-family: 'Google Sans', sans-serif;
+font-size: 1rem;
+line-height: 1.45;
+font-weight: 700;
+color: #111827;
+display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+overflow: hidden;
+transition: color 0.25s ease;
+}
+
+.shortcut-overview-card-answer {
+margin-top: auto;
+display: flex;
+align-items: center;
+gap: 0.55rem;
+}
+
+.shortcut-overview-card-answer span {
+font-size: 0.66rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.07em;
+color: #94a3b8;
+}
+
+.shortcut-overview-card-answer strong {
+min-width: 0;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-size: 0.85rem;
+font-weight: 700;
+color: #14532d;
+background: rgba(34, 197, 94, 0.12);
+border: 1px solid rgba(34, 197, 94, 0.4);
+border-radius: 7px;
+padding: 0.22rem 0.5rem;
 }
 
 .shortcut-overview-card figcaption {
@@ -754,6 +846,19 @@ display: grid;
 grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
 }
 
+.shortcut-modal-layout.is-no-video {
+grid-template-columns: 1fr;
+}
+
+.shortcut-modal-media-wrapper[hidden] {
+display: none;
+}
+
+.shortcut-modal-layout.is-no-video .shortcut-modal-body {
+max-width: 760px;
+margin: 0 auto;
+}
+
 .shortcut-modal-media-wrapper {
 position: relative;
 background: #eef2f7;
@@ -810,6 +915,19 @@ gap: 0.75rem;
 margin-bottom: 1.25rem;
 }
 
+.shortcut-modal-category h4 {
+font-size: 0.75rem;
+font-weight: 800;
+color: #94a3b8;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+margin-bottom: 0.45rem;
+}
+
+.shortcut-modal-category-right {
+text-align: right;
+}
+
 .shortcut-modal-tag {
 display: inline-block;
 font-size: 0.8rem;
@@ -857,6 +975,54 @@ font-size: 1.18rem;
 line-height: 1.45;
 font-weight: 700;
 color: #111827;
+}
+
+.shortcut-modal-options {
+display: grid;
+gap: 0.5rem;
+margin-bottom: 1.25rem;
+}
+
+.shortcut-modal-options[hidden] {
+display: none;
+}
+
+.shortcut-modal-option {
+display: flex;
+align-items: baseline;
+gap: 0.6rem;
+padding: 0.65rem 0.85rem;
+background: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 10px;
+font-size: 0.98rem;
+color: #1f2937;
+}
+
+.shortcut-modal-option b {
+flex: none;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 1.5rem;
+height: 1.5rem;
+border-radius: 6px;
+background: #eef2f7;
+color: #475569;
+font-size: 0.8rem;
+font-weight: 800;
+}
+
+.shortcut-modal-option.is-correct {
+background: rgba(34, 197, 94, 0.1);
+border-color: rgba(34, 197, 94, 0.45);
+color: #14532d;
+font-weight: 700;
+}
+
+.shortcut-modal-option.is-correct b {
+background: #22c55e;
+color: #ffffff;
 }
 
 .shortcut-modal-fields {

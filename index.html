@@ -190,44 +190,179 @@
         </div>
       </div>
 
+      <!--
+        Cases are shown in a horizontal rail (arrows / drag / wheel). Each card
+        shows a content summary and opens a detail popup on click (video on the
+        left, Category/Question/Options/Answer on the right).
+
+        The baked poster PNGs in ./static/images/shortcut/ are intentionally
+        left in the repo but no longer linked here.
+
+        Source clips per case (set data-media-src once the file is in static/videos/):
+          Case 01  Arithmetic Reasoning  Video-MME    t6V9i8fFADI.mp4
+          Case 02  Single Frame          MVBench      video_14667.mp4
+          Case 03  World Knowledge       Video-MME    CKYw_RG7i7w.mp4
+          Case 04  Static Context        Video-MME    erjwCQ-UZyw.mp4
+          Case 05  Static Context        RTV-Bench    EmbodiedPerspective_171.mp4  (already present)
+          Case 06  Linguistic Reasoning  Video-MME    IPqb_oDlGBU.mp4
+          Case 07  Dataset Bias          ImplicitQA   -EIXPOw_Wzs.mp4
+        Only Case 05's clip exists locally; every card currently points to it as a placeholder.
+      -->
       <div class="shortcut-overview-rail" tabindex="0" aria-label="Scrollable non-video shortcut examples">
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut1.png" alt="Shortcut case solvable through arithmetic reasoning without video evidence.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 01: Arithmetic Reasoning"
+          data-type="Arithmetic Reasoning"
+          data-media-type="none"
+          data-benchmark="Video-MME"
+          data-question="Suppose Emily purchased some company stock in 2005 at a price of $50 per share. She passed away in 2020, when the stock's market value was $150 per share. If her heir, John, sold the stock in 2023 for $180 per share. Assume the capital gains tax rate is 15%. According to the 'step-up in basis' rule, how much capital gains tax would John need to pay?"
+          data-options="A. $4.5 per share.||B. $27 per share.||C. $19.5 per share.||D. $15 per share."
+          data-correct="A"
+          data-answer="A. $4.5 per share."
+          data-reason="Pure arithmetic over the numbers stated in the text. The video frames provide no evidence needed to compute the tax.">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 01</figcaption>
         </figure>
 
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut2.png" alt="Shortcut case solvable from a single video frame.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 02: Single Frame"
+          data-type="Single Frame"
+          data-media-type="video"
+          data-media-src="./static/videos/video_14667.mp4"
+          data-benchmark="MVBench"
+          data-question="What color is the stationary cube when the video begins?"
+          data-options="A. brown||B. green||C. red||D. cyan"
+          data-correct="D"
+          data-answer="D. cyan"
+          data-reason="The cube never moves, so a single frame fully reveals its color. No temporal information is required.">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 02</figcaption>
         </figure>
 
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut3.png" alt="Shortcut case solvable through world knowledge without viewing the video.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 03: World Knowledge"
+          data-type="World Knowledge"
+          data-media-type="none"
+          data-benchmark="Video-MME"
+          data-question="According to the video, how many grandsons does the founder of Gucci have?"
+          data-options="A. 3||B. 4||C. 5||D. 6"
+          data-correct="B"
+          data-answer="B. 4"
+          data-reason="Answerable from external world knowledge about the Gucci family. The video itself is never needed (a 'blind video' case).">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 03</figcaption>
         </figure>
 
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut4.png" alt="Shortcut case solvable from static weather context across frames.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 04: Static Context"
+          data-type="Static Context"
+          data-media-type="video"
+          data-media-src="./static/videos/erjwCQ-UZyw.mp4"
+          data-benchmark="Video-MME"
+          data-question="What is the weather like?"
+          data-options="A. Rainy.||B. Sunny.||C. Snow.||D. Gloomy."
+          data-correct="B"
+          data-answer="B. Sunny."
+          data-reason="The weather is constant across every frame, so any single frame suffices. No temporal reasoning is needed.">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 04</figcaption>
         </figure>
 
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut5.png" alt="Shortcut case solvable from static scene context without temporal reasoning.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 05: Static Context"
+          data-type="Static Context"
+          data-media-type="video"
+          data-media-src="./static/videos/EmbodiedPerspective_171.mp4"
+          data-benchmark="RTV-Bench"
+          data-question="What appears in the current scene?"
+          data-options="A. Car||B. Basket||C. Shadow of a person||D. Two hands"
+          data-correct="D"
+          data-answer="D. Two hands"
+          data-reason="The scene content is static throughout the clip; a single frame answers the question.">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 05</figcaption>
         </figure>
 
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut6.png" alt="Shortcut case solvable through linguistic reasoning from audio evidence.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 06: Linguistic Reasoning"
+          data-type="Linguistic Reasoning"
+          data-media-type="none"
+          data-benchmark="Video-MME"
+          data-question="How does the speaker think about the David Suchet's version movie?"
+          data-options="A. Perfect.||B. Need to get progress.||C. Is not appropriate for movie.||D. Can't be worst."
+          data-correct="A"
+          data-answer="A. Perfect."
+          data-reason="The answer is carried entirely by the audio transcript ('to me is the perfect example'), not the visual stream.">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 06</figcaption>
         </figure>
 
-        <figure class="shortcut-overview-card">
-          <img src="./static/images/shortcut/shortcut7.png" alt="Shortcut case influenced by Super Mario dataset bias.">
+        <figure class="shortcut-overview-card" role="button" tabindex="0"
+          aria-label="Open Case 07: Dataset Bias"
+          data-type="Dataset Bias (Super Mario)"
+          data-media-type="video"
+          data-media-src="./static/videos/-EIXPOw_Wzs.mp4"
+          data-benchmark="ImplicitQA"
+          data-question="What causes the man in the red hat to shrink?"
+          data-options="A. The blue mushroom he ate||B. The gorilla used his powers||C. The gorilla crushed him||D. The man in the red hat has the ability to change size naturally||E. The crowd used their powers"
+          data-correct="A"
+          data-answer="A. The blue mushroom he ate"
+          data-reason="Solvable from Super Mario game priors. The model can guess from dataset and world bias without watching the video.">
+          <!-- card summary injected by index.js -->
           <figcaption>Case 07</figcaption>
         </figure>
       </div>
     </div>
   </section>
+
+  <div class="shortcut-modal" id="shortcut-modal">
+    <div class="shortcut-modal-background"></div>
+
+    <div class="shortcut-modal-content">
+      <button class="shortcut-modal-close" type="button" aria-label="close">&times;</button>
+
+      <div class="shortcut-modal-layout">
+        <div class="shortcut-modal-media-wrapper">
+          <img id="modal-image" src="./static/images/teaser.png" alt="Shortcut case preview" hidden>
+          <video id="modal-video" controls playsinline preload="metadata" hidden></video>
+          <div class="shortcut-modal-media-caption">
+            <span>Video clip</span>
+          </div>
+        </div>
+
+        <div class="shortcut-modal-body">
+          <div class="shortcut-modal-header">
+            <div class="shortcut-modal-category">
+              <h4>Category</h4>
+              <span class="shortcut-modal-tag" id="modal-type">Shortcut type</span>
+            </div>
+            <div class="shortcut-modal-category shortcut-modal-category-right">
+              <h4>Benchmark</h4>
+              <span class="shortcut-modal-benchmark" id="modal-benchmark">Benchmark</span>
+            </div>
+          </div>
+
+          <div class="shortcut-modal-question">
+            <h4>Question</h4>
+            <p id="modal-question"></p>
+          </div>
+
+          <div class="shortcut-modal-options" id="modal-options" hidden></div>
+
+          <div class="shortcut-modal-fields">
+            <div class="shortcut-modal-field">
+              <h4>Answer</h4>
+              <p id="modal-answer"></p>
+            </div>
+
+            <div class="shortcut-modal-field">
+              <h4>Why Shortcut?</h4>
+              <p id="modal-reason"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Interactive shortcut gallery temporarily disabled.
   <section class="section shortcut-gallery-section" id="shortcut-gallery">
