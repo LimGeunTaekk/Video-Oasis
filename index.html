@@ -947,19 +947,19 @@
         <div class="insights-header">
           <div>
             <span class="insights-kicker">Algorithmic insights</span>
-            <h2 class="insights-title">What Actually Matters for Better Video Models?</h2>
+            <h2 class="insights-title">What Actually Matters for Robust Video Understanding?</h2>
           </div>
         </div>
 
         <p class="insights-description">
-          Video-Oasis is not only a benchmark audit. It also points to three practical levers for building stronger video understanding systems.
+          Beyond diagnosis, Video-Oasis also provides practical guidance for designing stronger video understanding systems.
         </p>
 
         <div class="insight-presentation">
           <div class="insight-presentation-lead">
             <p class="insight-presentation-kicker">Three design levers</p>
-            <h3>Better video models need sharper evidence, smarter reasoning, and better training signals.</h3>
-            <p>These are the three places where progress is most likely to show up in practice.</p>
+            <h3>The path toward stronger video understanding depends on three design levers: sharper evidence selection, more effective reasoning control, and better training objectives.</h3>
+            <p>These are the primary axes where algorithmic progress is most likely to emerge.</p>
           </div>
 
           <div class="insight-grid">
@@ -968,22 +968,22 @@
                 <span class="insight-card-index">01</span>
                 <span class="insight-card-label">Temporal Grounding</span>
               </div>
-              <h3>Locate the evidence at the right time.</h3>
+              <h3>Ground the answer in the relevant temporal span.</h3>
               <div class="insight-metrics">
                 <div>
                   <span>Baseline</span>
                   <strong>31.5%</strong>
                 </div>
                 <div>
-                  <span>With grounding</span>
+                  <span>With temporal grounding</span>
                   <strong>32.9%</strong>
                 </div>
                 <div>
-                  <span>Oracle on video-native challenges</span>
+                  <span>Oracle temporal grounding on Video-Oasis-distilled samples</span>
                   <strong>50.8%</strong>
                 </div>
               </div>
-              <p>Precise grounding helps most when the task depends on temporal structure rather than language priors or shortcut answers.</p>
+              <p>Precise grounding becomes most valuable when the task truly requires spatio-temporal reasoning rather than relying on shortcut-driven cues.</p>
             </article>
 
             <article class="insight-card insight-card-reasoning">
@@ -991,22 +991,22 @@
                 <span class="insight-card-index">02</span>
                 <span class="insight-card-label">Adaptive Reasoning</span>
               </div>
-              <h3>Know when to think and when to perceive.</h3>
+              <h3>Adjust reasoning depth to the question at hand.</h3>
               <div class="insight-metrics">
                 <div>
-                  <span>Instruction-following</span>
+                  <span>Instruction-following mode</span>
                   <strong>33.8%</strong>
                 </div>
                 <div>
-                  <span>Always-on thinking</span>
+                  <span>Always-on thinking mode</span>
                   <strong>34.6%</strong>
                 </div>
                 <div>
-                  <span>Oracle selection</span>
+                  <span>Oracle mode selection</span>
                   <strong>46.2%</strong>
                 </div>
               </div>
-              <p>The reasoning policy matters as much as model scale. Choosing when to engage deeper reasoning can close much of the gap to frontier-level performance.</p>
+              <p>Reasoning-depth control is as important as raw model capacity. Choosing when to engage deeper reasoning can substantially narrow the gap to frontier-level performance.</p>
             </article>
 
             <article class="insight-card insight-card-training">
@@ -1014,48 +1014,33 @@
                 <span class="insight-card-index">03</span>
                 <span class="insight-card-label">Training Objectives</span>
               </div>
-              <h3>Train for the right signal.</h3>
+              <h3>Design training objectives that match the demands of spatio-temporal reasoning.</h3>
               <div class="insight-metrics">
                 <div>
-                  <span>SFT (Eagle2.5)</span>
+                  <span>SFT</span>
                   <strong>34.5%</strong>
                 </div>
                 <div>
-                  <span>RLVR · QA only</span>
+                  <span>RLVR with QA reward only</span>
                   <strong>26.3%</strong>
                 </div>
                 <div>
-                  <span>RLVR · QA + grounding</span>
+                  <span>RLVR with QA + grounding reward</span>
                   <strong>32.7%</strong>
                 </div>
               </div>
-              <p>There is no universally better paradigm. SFT improves overall accuracy, while RLVR only helps when the reward is aligned with the underlying reasoning demands.</p>
+              <p>There is no single universally superior paradigm. SFT improves overall accuracy, while RLVR is effective only when the reward design is aligned with the underlying reasoning demands.</p>
             </article>
           </div>
 
           <div class="insight-summary">
             <p>
               <span>Bottom line</span>
-              Stronger video models will come from better evidence selection, adaptive reasoning policies, and training objectives that match the real difficulty of the task.
+              These findings suggest that progress in video understanding will depend on better evidence selection, adaptive reasoning strategies, and reward designs that better reflect the demands of spatio-temporal reasoning.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-
-      <pre><code>@article{lim2026videooasis,
-
-
-author    = {Geuntaek Lim and Sungjune Park and Jaeyun Lee and Inwoong Lee and Taeoh Kim and Dongyoon Wee and Minho Shim and Yukyung Choi},
-title     = {Video-Oasis: Rethinking Evaluation of Video Understanding},
-journal   = {arXiv preprint arXiv:2603.29616},
-year      = {2026},
-}</code></pre>
     </div>
   </section>
 
