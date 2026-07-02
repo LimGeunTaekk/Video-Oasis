@@ -26,6 +26,20 @@ body {
     font-family: 'Google Sans', sans-serif;
 }
 
+.publication-corresponding-authors {
+  margin-top: 0.15rem;
+}
+
+.publication-notes {
+  font-family: 'Google Sans', sans-serif;
+  color: #4b5563;
+  margin-top: 0.45rem;
+}
+
+.publication-notes .author-block:not(:last-child) {
+  margin-right: 0.9rem;
+}
+
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
 }
