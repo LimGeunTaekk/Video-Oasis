@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modalQuestion.textContent = question;
       renderOptions(getCardValue(card, "options"), getCardValue(card, "correct"));
       modalAnswer.textContent = getCardValue(card, "answer");
-      modalReason.textContent = getCardValue(card, "reason");
+      modalReason.innerHTML = getCardValue(card, "reason");
 
       modal.classList.add("is-active");
       document.body.style.overflow = "hidden";

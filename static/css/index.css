@@ -197,6 +197,16 @@ font-weight: 800;
 color: #1f2937;
 }
 
+.shortcut-inline {
+display: inline-block;
+padding: 0.04rem 0.32rem;
+border-radius: 999px;
+background: rgba(220, 38, 38, 0.08);
+color: #b42318;
+font-weight: 700;
+white-space: nowrap;
+}
+
 .question-shortcuts {
 display: flex;
 flex-wrap: wrap;
@@ -1160,6 +1170,37 @@ color: #53627c;
 margin-left: 0;
 margin-right: auto;
 margin-bottom: 2rem;
+}
+
+.benchmark-chip-list {
+display: flex;
+flex-wrap: wrap;
+gap: 0.55rem;
+max-width: 960px;
+margin: -0.65rem 0 2rem 0;
+}
+
+.benchmark-chip-list a {
+display: inline-flex;
+align-items: center;
+font-size: 0.78rem;
+line-height: 1;
+font-weight: 800;
+color: #9f1d1d;
+background: rgba(220, 38, 38, 0.06);
+border: 1px solid rgba(220, 38, 38, 0.2);
+border-radius: 999px;
+padding: 0.48rem 0.68rem;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.benchmark-chip-list a:hover,
+.benchmark-chip-list a:focus {
+color: #ffffff;
+background: #b42318;
+border-color: #b42318;
+transform: translateY(-1px);
 }
 
 .graph-insights {

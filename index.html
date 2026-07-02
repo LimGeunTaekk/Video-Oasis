@@ -118,7 +118,7 @@
       <div class="tldr-content">
         <span class="tldr-label">TL;DR</span>
         <p class="tldr-text">
-          Video-Oasis rethinks the current benchmark landscape by examining whether proliferating video benchmarks truly satisfy <strong>shared criteria</strong> for genuine video understanding.
+          Video-Oasis rethinks the current benchmark landscape by examining whether proliferating video benchmarks truly satisfy <strong><u>shared criteria</u></strong> for genuine video understanding.
         </p>
       </div>
       <div class="tldr-divider"></div>
@@ -135,16 +135,16 @@
         <div class="question-criteria" aria-label="Core video benchmark criteria">
           <div class="question-criterion">
             <span class="question-criterion-label">Visual Grounding</span>
-            <strong>Evidence must be grounded in video frames and pixels.</strong>
+            <strong>Answers should depend on grounded visual evidence from the raw video.</strong>
           </div>
           <div class="question-criterion">
             <span class="question-criterion-label">Temporal Reasoning</span>
-            <strong>Video understanding must rely on the flow of time itself.</strong>
+            <strong>Answers should depend on temporal context, not isolated frames alone.</strong>
           </div>
         </div>
 
         <p class="question-description">
-          Video benchmarks are rapidly expanding, but high scores do not always imply genuine video understanding. Many video-QA samples can be answered using language priors, audio cues, captions, or single-frame evidence. Here, we first expose such non-video shortcuts through concrete cases.
+          Video benchmarks are rapidly expanding, but <strong><u>high scores do not always imply video-native understanding</u></strong>. Many video-QA samples can be answered using <span class="shortcut-inline">linguistic prior</span>, <span class="shortcut-inline">transcript reliance</span>, <span class="shortcut-inline">single-frame perception</span>, or <span class="shortcut-inline">static-context</span>. Here, we first expose shortcut pathways in video understanding through concrete cases.
         </p>
 
       </div>
@@ -184,11 +184,9 @@
           Case 01  Arithmetic Reasoning  Video-MME    t6V9i8fFADI.mp4
           Case 02  Single Frame          MVBench      video_14667.mp4
           Case 03  World Knowledge       Video-MME    CKYw_RG7i7w.mp4
-          Case 04  Static Context        Video-MME    erjwCQ-UZyw.mp4
-          Case 05  Static Context        RTV-Bench    EmbodiedPerspective_171.mp4  (already present)
-          Case 06  Linguistic Reasoning  Video-MME    IPqb_oDlGBU.mp4
-          Case 07  Dataset Bias          ImplicitQA   -EIXPOw_Wzs.mp4
-        Only Case 05's clip exists locally; every card currently points to it as a placeholder.
+          Case 04  Static Context        RTV-Bench    EmbodiedPerspective_171.mp4  (already present)
+          Case 05  Linguistic Reasoning  Video-MME    IPqb_oDlGBU.mp4
+          Case 06  Dataset Bias          ImplicitQA   -EIXPOw_Wzs.mp4
       -->
       <div class="shortcut-overview-rail" tabindex="0" aria-label="Scrollable non-video shortcut examples">
         <figure class="shortcut-overview-card" role="button" tabindex="0"
@@ -200,7 +198,7 @@
           data-options="A. $4.5 per share.||B. $27 per share.||C. $19.5 per share.||D. $15 per share."
           data-correct="A"
           data-answer="A. $4.5 per share."
-          data-reason="This is solved by simple arithmetic from the text alone, so the video frames add no necessary evidence.">
+          data-reason="The question can be solved from <strong>the text and answer options alone</strong>, without requiring visual evidence from the video.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 01</figcaption>
         </figure>
@@ -215,7 +213,7 @@
           data-options="A. brown||B. green||C. red||D. cyan"
           data-correct="D"
           data-answer="D. cyan"
-          data-reason="The cube stays static, so one frame is enough to answer the question without any temporal reasoning.">
+          data-reason="<strong>A single frame</strong> reveals the cube color, so temporal order and motion are not required.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 02</figcaption>
         </figure>
@@ -229,7 +227,7 @@
           data-options="A. 3||B. 4||C. 5||D. 6"
           data-correct="B"
           data-answer="B. 4"
-          data-reason="This relies on outside knowledge about the Gucci family rather than visual evidence, making the video unnecessary.">
+          data-reason="The answer can be recovered from <strong>external knowledge about Gucci</strong>, rather than grounded evidence in the video.">
           <!-- card summary injected by index.js -->
           <figcaption>Case 03</figcaption>
         </figure>
@@ -238,34 +236,19 @@
           aria-label="Open Case 04: Static Context"
           data-type="Static Context"
           data-media-type="video"
-          data-media-src="./static/videos/erjwCQ-UZyw.mp4"
-          data-benchmark="Video-MME"
-          data-question="What is the weather like?"
-          data-options="A. Rainy.||B. Sunny.||C. Snow.||D. Gloomy."
-          data-correct="B"
-          data-answer="B. Sunny."
-          data-reason="Because the weather never changes, a single frame is enough and the temporal sequence is irrelevant.">
-          <!-- card summary injected by index.js -->
-          <figcaption>Case 04</figcaption>
-        </figure>
-
-        <figure class="shortcut-overview-card" role="button" tabindex="0"
-          aria-label="Open Case 05: Static Context"
-          data-type="Static Context"
-          data-media-type="video"
           data-media-src="./static/videos/EmbodiedPerspective_171.mp4"
           data-benchmark="RTV-Bench"
           data-question="What appears in the current scene?"
           data-options="A. Car||B. Basket||C. Shadow of a person||D. Two hands"
           data-correct="D"
           data-answer="D. Two hands"
-          data-reason="The clip remains visually unchanged, so one frame already provides the answer.">
+          data-reason="The relevant scene content is visible in <strong>any representative frame</strong>, so the full video sequence is unnecessary.">
           <!-- card summary injected by index.js -->
-          <figcaption>Case 05</figcaption>
+          <figcaption>Case 04</figcaption>
         </figure>
 
         <figure class="shortcut-overview-card" role="button" tabindex="0"
-          aria-label="Open Case 06: Linguistic Reasoning"
+          aria-label="Open Case 05: Linguistic Reasoning"
           data-type="Linguistic Reasoning"
           data-media-type="none"
           data-benchmark="Video-MME"
@@ -273,13 +256,13 @@
           data-options="A. Perfect.||B. Need to get progress.||C. Is not appropriate for movie.||D. Can't be worst."
           data-correct="A"
           data-answer="A. Perfect."
-          data-reason="The response comes from the spoken transcript, so visual information is not required.">
+          data-reason="The answer is available from <strong>the spoken transcript</strong>, so raw visual evidence is not required.">
           <!-- card summary injected by index.js -->
-          <figcaption>Case 06</figcaption>
+          <figcaption>Case 05</figcaption>
         </figure>
 
         <figure class="shortcut-overview-card" role="button" tabindex="0"
-          aria-label="Open Case 07: Dataset Bias"
+          aria-label="Open Case 06: Dataset Bias"
           data-type="Dataset Bias (Super Mario)"
           data-media-type="video"
           data-media-src="./static/videos/-EIXPOw_Wzs.mp4"
@@ -288,9 +271,9 @@
           data-options="A. The blue mushroom he ate||B. The gorilla used his powers||C. The gorilla crushed him||D. The man in the red hat has the ability to change size naturally||E. The crowd used their powers"
           data-correct="A"
           data-answer="A. The blue mushroom he ate"
-          data-reason="This can be inferred from Super Mario priors and dataset bias, rather than from the video content itself.">
+          data-reason="The answer can be inferred from <strong>Super Mario priors</strong>, making the sample vulnerable to dataset and world-knowledge bias.">
           <!-- card summary injected by index.js -->
-          <figcaption>Case 07</figcaption>
+          <figcaption>Case 06</figcaption>
         </figure>
       </div>
     </div>
@@ -337,7 +320,7 @@
             </div>
 
             <div class="shortcut-modal-field">
-              <h4>Why Shortcut?</h4>
+              <h4>Shortcut Pathway</h4>
               <p id="modal-reason"></p>
             </div>
           </div>
@@ -579,87 +562,6 @@
   </div>
   -->
 
-  <section class="section graph-section" id="performance-shortcut">
-    <div class="container is-max-desktop">
-      <div class="graph-content">
-        <span class="graph-kicker">Benchmark-wide pattern</span>
-
-        <h2 class="graph-title">
-          Hidden Shortcuts Behind High Scores
-        </h2>
-
-        <p class="graph-description">
-          The shortcut examples above are not rare corner cases. Across 14 benchmarks spanning spatial perception, temporal reasoning, and holistic video understanding, we measure how often each benchmark can be solved without full visual or temporal dependency. Reported accuracy tracks shortcut prevalence closely, implying that strong benchmark scores can be partly driven by examples that do not require robust video understanding.
-        </p>
-
-        <div class="graph-insights" aria-label="Shortcut ratio analysis summary">
-          <div class="graph-insight graph-insight-number">
-            <span>Benchmarks analyzed</span>
-            <strong>14</strong>
-          </div>
-          <div class="graph-insight">
-            <span>Coverage</span>
-            <div class="graph-insight-tags" aria-label="Benchmark coverage areas">
-              <strong>Spatial</strong>
-              <strong>Temporal</strong>
-              <strong>Reasoning</strong>
-              <strong>Holistic</strong>
-            </div>
-          </div>
-          <div class="graph-insight">
-            <span>Key pattern</span>
-            <strong>Higher scores can align with higher shortcut solvability.</strong>
-          </div>
-        </div>
-
-        <figure class="graph-figure">
-          <img
-            src="./static/images/Performance_Shortcut.png"
-            alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
-          <figcaption>
-            Shortcut ratio is compared against reported benchmark accuracy across the benchmark suite.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section graph-section" id="performance-collapse">
-    <div class="container is-max-desktop">
-      <div class="graph-content">
-        <span class="graph-kicker">Filtered evaluation</span>
-
-        <h2 class="graph-title">
-          Removing Shortcuts Reveals the Real Challenge
-        </h2>
-
-        <p class="graph-description">
-          Once shortcut-solvable samples are removed, benchmark accuracy drops sharply across state-of-the-art video-LLMs. On the remaining video-native challenges, most models perform only marginally above random chance. This reveals that high benchmark scores can mask a substantial gap in genuine spatio-temporal understanding.
-        </p>
-
-        <div class="graph-insights graph-insights-two" aria-label="Filtered evaluation summary">
-          <div class="graph-insight">
-            <span>Filtered setting</span>
-            <strong>Shortcut-solvable samples removed</strong>
-          </div>
-          <div class="graph-insight">
-            <span>Observed effect</span>
-            <strong>Accuracy drops toward random chance.</strong>
-          </div>
-        </div>
-
-        <figure class="graph-figure">
-          <img
-            src="./static/images/Performance_Collapse.png"
-            alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
-          <figcaption>
-            Model accuracy is recomputed after removing samples that can be solved through non-video shortcuts.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
   <section class="section question-section" id="what-is-video-oasis">
     <div class="container is-max-desktop">
       <div class="question-content">
@@ -703,6 +605,104 @@
             alt="Overview of the Video-Oasis diagnostic suite.">
           <figcaption>
             Overview of the Video-Oasis diagnostic suite, from visual-temporal dependency tests to shortcut filtering and video-native challenge distillation.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section graph-section" id="performance-shortcut">
+    <div class="container is-max-desktop">
+      <div class="graph-content">
+        <span class="graph-kicker">Benchmark-wide pattern</span>
+
+        <h2 class="graph-title">
+          Hidden Shortcuts Behind High Scores
+        </h2>
+
+        <p class="graph-description">
+          We estimate how often benchmark samples remain solvable without visual evidence or temporal context, and compare these shortcut ratios with reported accuracy, <strong><u>suggesting that high scores often reflect shortcut-solvable examples rather than video-native understanding</u></strong>.
+        </p>
+
+        <div class="benchmark-chip-list" aria-label="Audited video benchmarks">
+          <a href="https://github.com/egoschema/EgoSchema" target="_blank" rel="noopener noreferrer">EgoSchema</a>
+          <a href="https://github.com/UCF-CRCV/VRR-QA" target="_blank" rel="noopener noreferrer">ImplicitQA</a>
+          <a href="https://github.com/longvideobench/LongVideoBench" target="_blank" rel="noopener noreferrer">LongVideoBench</a>
+          <a href="https://github.com/zai-org/LVBench" target="_blank" rel="noopener noreferrer">LVBench</a>
+          <a href="https://github.com/google-deepmind/neptune?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">MINERVA</a>
+          <a href="https://github.com/JUNJIE99/MLVU" target="_blank" rel="noopener noreferrer">MLVU</a>
+          <a href="https://github.com/GaryStack/MMR-V" target="_blank" rel="noopener noreferrer">MMR-V</a>
+          <a href="https://huggingface.co/datasets/OpenGVLab/MVBench" target="_blank" rel="noopener noreferrer">MVBench</a>
+          <a href="https://github.com/LJungang/RTV-Bench" target="_blank" rel="noopener noreferrer">RTV-Bench</a>
+          <a href="https://github.com/daniel-cores/tvbench" target="_blank" rel="noopener noreferrer">TVBench</a>
+          <a href="https://github.com/zhishuifeiqian/VCR-Bench" target="_blank" rel="noopener noreferrer">VCR-Bench</a>
+          <a href="https://github.com/MME-Benchmarks/Video-MME" target="_blank" rel="noopener noreferrer">Video-MME</a>
+          <a href="https://github.com/TencentARC/Video-Holmes" target="_blank" rel="noopener noreferrer">Video-Holmes</a>
+          <a href="https://github.com/vision-x-nyu/thinking-in-space" target="_blank" rel="noopener noreferrer">VSI-Bench</a>
+        </div>
+
+        <div class="graph-insights" aria-label="Shortcut ratio analysis summary">
+          <div class="graph-insight graph-insight-number">
+            <span>Benchmarks analyzed</span>
+            <strong>14</strong>
+          </div>
+          <div class="graph-insight">
+            <span>Coverage</span>
+            <div class="graph-insight-tags" aria-label="Benchmark coverage areas">
+              <strong>Spatial</strong>
+              <strong>Temporal</strong>
+              <strong>Reasoning</strong>
+              <strong>Holistic</strong>
+            </div>
+          </div>
+          <div class="graph-insight">
+            <span>Key pattern</span>
+            <strong>Higher scores can align with higher shortcut solvability.</strong>
+          </div>
+        </div>
+
+        <figure class="graph-figure">
+          <img
+            src="./static/images/Performance_Shortcut.png"
+            alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
+          <figcaption>
+            Shortcut ratio is compared against reported benchmark accuracy across the benchmark suite.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section graph-section" id="performance-collapse">
+    <div class="container is-max-desktop">
+      <div class="graph-content">
+        <span class="graph-kicker">Filtered evaluation</span>
+
+        <h2 class="graph-title">
+          Removing Shortcuts Reveals the Real Challenge
+        </h2>
+
+        <p class="graph-description">
+          After filtering out shortcut-solvable samples, benchmark accuracy drops across state-of-the-art Video-LLMs. The remaining video-native challenges require visual evidence and temporal context, where many models perform close to random chance. These results indicate that current benchmarks can overestimate models' video understanding capabilities.
+        </p>
+
+        <div class="graph-insights graph-insights-two" aria-label="Filtered evaluation summary">
+          <div class="graph-insight">
+            <span>Distilled set</span>
+            <strong>Challenges requiring visual and temporal dependency</strong>
+          </div>
+          <div class="graph-insight">
+            <span>Key observation</span>
+            <strong>Performance remains near chance for many models.</strong>
+          </div>
+        </div>
+
+        <figure class="graph-figure">
+          <img
+            src="./static/images/Performance_Collapse.png"
+            alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
+          <figcaption>
+            Model accuracy is recomputed after removing samples that can be solved through non-video shortcuts.
           </figcaption>
         </figure>
       </div>
