@@ -673,49 +673,13 @@
     </div>
   </section>
 
-  <section class="section graph-section" id="performance-collapse">
-    <div class="container is-max-desktop">
-      <div class="graph-content">
-        <span class="graph-kicker">Filtered evaluation</span>
-
-        <h2 class="graph-title">
-          Removing Shortcuts Reveals the Real Challenge
-        </h2>
-
-        <p class="graph-description">
-          After filtering out shortcut-solvable samples, benchmark accuracy drops across state-of-the-art Video-LLMs. The remaining video-native challenges require visual evidence and temporal context, where many models perform close to random chance. These results indicate that current benchmarks can overestimate models' video understanding capabilities.
-        </p>
-
-        <div class="graph-insights graph-insights-two" aria-label="Filtered evaluation summary">
-          <div class="graph-insight">
-            <span>Distilled set</span>
-            <strong>Challenges requiring visual and temporal dependency</strong>
-          </div>
-          <div class="graph-insight">
-            <span>Key observation</span>
-            <strong>Performance remains near chance for many models.</strong>
-          </div>
-        </div>
-
-        <figure class="graph-figure">
-          <img
-            src="./static/images/Performance_Collapse.png"
-            alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
-          <figcaption>
-            Model accuracy is recomputed after removing samples that can be solved through non-video shortcuts.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
   <section class="section challenge-section" id="video-native-challenges">
     <div class="container is-max-desktop">
       <div class="challenge-content">
         <span class="challenge-kicker">Video-native challenges</span>
 
-        <h2 class="challenge-title">
-          What Challenges Remain After Filtering?
+        <h2 class="question-title">
+          <span class="highlight-word">What</span> Challenges Remain After Filtering?
         </h2>
 
         <p class="challenge-description">
@@ -823,15 +787,37 @@
         </h2>
 
         <p class="results-description">
-          Across the distilled video-native challenges, most current models remain close to the random-chance level, with Global Narrative presenting a persistent bottleneck.
+          We evaluate a broad range of models on the Video-Oasis-distilled challenges and summarize the main trends below.
         </p>
 
-        <div class="results-meta">
-          <span class="results-random-chance">Random chance: 25.63%</span>
-        </div>
+        <ol class="results-findings" aria-label="Key findings from model evaluation">
+          <li>
+            <strong>Near-chance performance.</strong>
+            Many current Video-LLMs remain close to the random-chance level.
+          </li>
+          <li>
+            <strong>Current frontier.</strong>
+            Gemini-2.5 Pro performs best, but the tasks remain non-trivial even for advanced proprietary models.
+          </li>
+          <li>
+            <strong>Holistic bottleneck.</strong>
+            Global Narrative remains a persistent bottleneck for long-term multi-scene understanding.
+          </li>
+          <li>
+            <strong>Agentic design matters.</strong>
+            The gap between VideoTree and STAR highlights the impact of reasoning-step orchestration.
+          </li>
+        </ol>
 
-        <div class="results-table-wrapper">
-          <table class="results-table">
+        <div class="results-panels" tabindex="0" aria-label="Model evaluation panels">
+          <article class="results-panel">
+            <div class="results-panel-header">
+              <span>01 Video-Native Challenges</span>
+              <span class="results-random-chance">Random chance: 25.63%</span>
+            </div>
+
+            <div class="results-table-wrapper">
+              <table class="results-table">
             <thead>
               <tr>
                 <th scope="col">Model</th>
@@ -973,7 +959,39 @@
                 <td class="results-overall">39.5</td>
               </tr>
             </tbody>
-          </table>
+              </table>
+            </div>
+          </article>
+
+          <article class="results-panel results-panel-figure">
+            <div class="results-panel-header">
+              <span>02 Evaluation Gap</span>
+            </div>
+
+            <p class="results-panel-description">
+              Video-native challenges require strict visual evidence and temporal context, where many models perform close to random chance. These results indicate that current benchmarks can overestimate models' video understanding capabilities.
+            </p>
+
+            <div class="graph-insights graph-insights-two results-filter-insights" aria-label="Filtered evaluation summary">
+              <div class="graph-insight">
+                <span>Distilled set</span>
+                <strong>Challenges requiring visual and temporal dependency</strong>
+              </div>
+              <div class="graph-insight">
+                <span>Key observation</span>
+                <strong>Performance remains near chance for many models.</strong>
+              </div>
+            </div>
+
+            <figure class="graph-figure results-collapse-figure">
+              <img
+                src="./static/images/Performance_Collapse.png"
+                alt="Performance collapse after filtering shortcut-solvable benchmark samples.">
+              <figcaption>
+                Model accuracy is recomputed after removing samples that can be solved through non-video shortcuts.
+              </figcaption>
+            </figure>
+          </article>
         </div>
       </div>
     </div>

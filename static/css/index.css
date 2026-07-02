@@ -1118,13 +1118,11 @@ padding-right: 0;
 background-color: #ffffff;
 }
 
-#performance-shortcut,
-#performance-collapse {
+#performance-shortcut {
 padding-bottom: 3.25rem;
 }
 
-#performance-shortcut .graph-figure,
-#performance-collapse .graph-figure {
+#performance-shortcut .graph-figure {
 margin: 0 auto;
 }
 
@@ -1578,6 +1576,30 @@ color: #53627c;
 margin-bottom: 1.25rem;
 }
 
+.results-findings {
+max-width: 960px;
+margin: 0 0 1.25rem;
+padding-left: 1.25rem;
+color: #53627c;
+}
+
+.results-findings li {
+font-size: 0.98rem;
+line-height: 1.55;
+padding-left: 0.25rem;
+margin-bottom: 0.35rem;
+}
+
+.results-findings li::marker {
+font-weight: 800;
+color: #4f6bdc;
+}
+
+.results-findings strong {
+font-weight: 800;
+color: #1f2937;
+}
+
 .results-meta {
 display: flex;
 flex-wrap: wrap;
@@ -1598,19 +1620,102 @@ border-radius: 999px;
 padding: 0.48rem 0.65rem;
 }
 
-.results-meta .results-random-chance {
+.results-random-chance {
 color: #b42318;
 background: rgba(220, 38, 38, 0.08);
 border-color: rgba(220, 38, 38, 0.24);
 }
 
+.results-panels {
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: minmax(100%, 100%);
+gap: 1rem;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+scroll-behavior: smooth;
+padding-bottom: 0.75rem;
+}
+
+.results-panels:focus {
+outline: 2px solid rgba(79, 107, 220, 0.35);
+outline-offset: 4px;
+border-radius: 14px;
+}
+
+.results-panel {
+min-width: 0;
+scroll-snap-align: start;
+background: #ffffff;
+border: 1px solid #dfe7f1;
+border-radius: 14px;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+padding: 1rem;
+}
+
+.results-panel-header {
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 1rem;
+margin-bottom: 0.9rem;
+}
+
+.results-panel-header span {
+flex: 0 0 auto;
+font-size: 0.72rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+background: rgba(79, 107, 220, 0.08);
+border: 1px solid rgba(79, 107, 220, 0.18);
+border-radius: 999px;
+padding: 0.42rem 0.6rem;
+}
+
+.results-panel-header .results-random-chance {
+color: #b42318;
+background: rgba(220, 38, 38, 0.08);
+border-color: rgba(220, 38, 38, 0.24);
+letter-spacing: 0;
+text-transform: none;
+}
+
+.results-panel-header h3 {
+font-family: 'Google Sans', sans-serif;
+font-size: 1.25rem;
+line-height: 1.25;
+font-weight: 800;
+letter-spacing: -0.02em;
+color: #1f2937;
+margin: 0;
+text-align: right;
+}
+
+.results-panel-description {
+font-size: 1rem;
+line-height: 1.65;
+color: #53627c;
+margin-bottom: 1.25rem;
+}
+
+.results-filter-insights {
+max-width: none;
+margin-bottom: 1.25rem;
+}
+
+.results-collapse-figure {
+margin-bottom: 0;
+}
+
 .results-table-wrapper {
 width: 100%;
 overflow-x: auto;
-background: #ffffff;
-border: 1px solid #dfe7f1;
+background: transparent;
+border: 1px solid #e5eaf2;
 border-radius: 10px;
-box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
 }
 
 .results-table {
