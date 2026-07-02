@@ -369,6 +369,66 @@ document.addEventListener("DOMContentLoaded", function () {
     updateShortcutPages();
   }
 
+  // ----- Video-native challenge examples -----
+  const challengeModal = document.getElementById("challenge-modal");
+  const challengeCards = document.querySelectorAll(".challenge-card[data-image]");
+
+  if (challengeModal && challengeCards.length > 0) {
+    const challengeModalImage = document.getElementById("challenge-modal-image");
+    const challengeModalTitle = document.getElementById("challenge-modal-title");
+    const challengeModalDescription = document.getElementById("challenge-modal-description");
+    const challengeCloseButton = challengeModal.querySelector(".challenge-modal-close");
+    const challengeBackground = challengeModal.querySelector(".shortcut-modal-background");
+    let lastFocusedChallenge = null;
+
+    function openChallengeModal(card) {
+      const title = card.dataset.title || card.querySelector("h3").textContent;
+      const description = card.dataset.description || card.querySelector("p").textContent;
+      const image = card.dataset.image;
+
+      lastFocusedChallenge = card;
+      challengeModalTitle.textContent = title;
+      challengeModalDescription.textContent = description;
+      challengeModalImage.src = image;
+      challengeModalImage.alt = title + " example.";
+
+      challengeModal.classList.add("is-active");
+      document.body.style.overflow = "hidden";
+      challengeCloseButton.focus();
+    }
+
+    function closeChallengeModal() {
+      challengeModal.classList.remove("is-active");
+      document.body.style.overflow = "";
+
+      if (lastFocusedChallenge) {
+        lastFocusedChallenge.focus();
+      }
+    }
+
+    challengeCards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        openChallengeModal(card);
+      });
+
+      card.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openChallengeModal(card);
+        }
+      });
+    });
+
+    challengeCloseButton.addEventListener("click", closeChallengeModal);
+    challengeBackground.addEventListener("click", closeChallengeModal);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && challengeModal.classList.contains("is-active")) {
+        closeChallengeModal();
+      }
+    });
+  }
+
   // ----- Algorithmic insights rail -----
   const insightsRail = document.querySelector(".insights-rail");
   const previousInsightButton = document.querySelector(".insights-control-prev");

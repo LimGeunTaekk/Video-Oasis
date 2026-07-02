@@ -729,39 +729,89 @@
         </figure>
 
         <div class="challenge-grid">
-          <div class="challenge-card">
-            <span class="challenge-card-index">01</span>
-            <h3>Fine-Grained Perception</h3>
+          <div class="challenge-card" role="button" tabindex="0"
+            data-title="Fine-Grained Perception"
+            data-image="./static/images/vnc/fig_perception.png"
+            data-description="Ground fine-grained visual recognition in how details evolve across space and time.">
+            <div class="challenge-card-header">
+              <span class="challenge-card-index">01</span>
+              <h3>Fine-Grained Perception</h3>
+            </div>
             <p>Ground fine-grained visual recognition in how details evolve across space and time.</p>
+            <span class="challenge-card-hint">View example</span>
           </div>
 
-          <div class="challenge-card">
-            <span class="challenge-card-index">02</span>
-            <h3>Spatial World Understanding</h3>
+          <div class="challenge-card" role="button" tabindex="0"
+            data-title="Spatial World Understanding"
+            data-image="./static/images/vnc/fig_spatial.png"
+            data-description="Synthesize fragmented, multi-view evidence across frames to infer 3D positions, geometry, and trajectories.">
+            <div class="challenge-card-header">
+              <span class="challenge-card-index">02</span>
+              <h3>Spatial World Understanding</h3>
+            </div>
             <p>Synthesize fragmented, multi-view evidence across frames to infer 3D positions, geometry, and trajectories.</p>
+            <span class="challenge-card-hint">View example</span>
           </div>
 
-          <div class="challenge-card">
-            <span class="challenge-card-index">03</span>
-            <h3>Temporal Dynamics &amp; Tracking</h3>
+          <div class="challenge-card" role="button" tabindex="0"
+            data-title="Temporal Dynamics &amp; Tracking"
+            data-image="./static/images/vnc/fig_temporal.png"
+            data-description="Track objects, action sequences, and state transitions in their correct temporal order.">
+            <div class="challenge-card-header">
+              <span class="challenge-card-index">03</span>
+              <h3>Temporal Dynamics &amp; Tracking</h3>
+            </div>
             <p>Track objects, action sequences, and state transitions in their correct temporal order.</p>
+            <span class="challenge-card-hint">View example</span>
           </div>
 
-          <div class="challenge-card">
-            <span class="challenge-card-index">04</span>
-            <h3>Causality &amp; Logical Reasoning</h3>
+          <div class="challenge-card" role="button" tabindex="0"
+            data-title="Causality &amp; Logical Reasoning"
+            data-image="./static/images/vnc/fig_causal.png"
+            data-description="Infer cause-and-effect relationships, physical rules, and unobserved intentions beyond visible events.">
+            <div class="challenge-card-header">
+              <span class="challenge-card-index">04</span>
+              <h3>Causality &amp; Logical Reasoning</h3>
+            </div>
             <p>Infer cause-and-effect relationships, physical rules, and unobserved intentions beyond visible events.</p>
+            <span class="challenge-card-hint">View example</span>
           </div>
 
-          <div class="challenge-card challenge-card-wide">
-            <span class="challenge-card-index">05</span>
-            <h3>Global Narrative</h3>
+          <div class="challenge-card challenge-card-wide" role="button" tabindex="0"
+            data-title="Global Narrative"
+            data-image="./static/images/vnc/fig_global.png"
+            data-description="Aggregate events across the full timeline, filtering irrelevant context to understand overarching plots and long-term semantics.">
+            <div class="challenge-card-header">
+              <span class="challenge-card-index">05</span>
+              <h3>Global Narrative</h3>
+            </div>
             <p>Aggregate events across the full timeline, filtering irrelevant context to understand overarching plots and long-term semantics.</p>
+            <span class="challenge-card-hint">View example</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="shortcut-modal challenge-modal" id="challenge-modal">
+    <div class="shortcut-modal-background"></div>
+
+    <div class="shortcut-modal-content challenge-modal-content">
+      <button class="shortcut-modal-close challenge-modal-close" type="button" aria-label="close">&times;</button>
+
+      <div class="challenge-modal-body">
+        <div class="challenge-modal-header">
+          <span class="challenge-kicker">Video-native challenge</span>
+          <h3 id="challenge-modal-title">Challenge example</h3>
+          <p id="challenge-modal-description"></p>
+        </div>
+
+        <figure class="challenge-modal-figure">
+          <img id="challenge-modal-image" src="./static/images/vnc/fig_perception.png" alt="Video-native challenge example.">
+        </figure>
+      </div>
+    </div>
+  </div>
 
   <section class="section results-section" id="model-results">
     <div class="container is-max-desktop">
@@ -777,8 +827,7 @@
         </p>
 
         <div class="results-meta">
-          <span>Accuracy (%)</span>
-          <span>Random chance: 25.63%</span>
+          <span class="results-random-chance">Random chance: 25.63%</span>
         </div>
 
         <div class="results-table-wrapper">
@@ -915,7 +964,7 @@
                 <td class="results-overall">30.1</td>
               </tr>
               <tr class="results-runner-up">
-                <th scope="row">VideoTool (GPT5 mini)</th>
+                <th scope="row">STAR (GPT5 mini)</th>
                 <td>31.6</td>
                 <td>44.4</td>
                 <td>42.2</td>
