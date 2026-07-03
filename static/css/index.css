@@ -1269,6 +1269,32 @@ padding: 0.45rem 0.58rem;
 text-align: center;
 }
 
+.graph-finding-list {
+margin: 0;
+padding-left: 1.15rem;
+font-family: 'Google Sans', sans-serif;
+font-size: 1rem;
+line-height: 1.45;
+font-weight: 800;
+color: #1f2937;
+}
+
+.graph-finding-list li {
+padding-left: 0.15rem;
+margin-bottom: 0.45rem;
+}
+
+.graph-finding-list li:last-child {
+margin-bottom: 0;
+}
+
+.graph-finding-list strong {
+display: inline;
+font-size: inherit;
+line-height: inherit;
+color: #4f6bdc;
+}
+
 .graph-figure {
 display: flex;
 flex-direction: column;
