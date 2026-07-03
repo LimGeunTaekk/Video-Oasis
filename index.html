@@ -568,24 +568,24 @@
         </h2>
 
         <p class="question-description">
-          Video-Oasis verifies whether each benchmark sample truly requires visual evidence and temporal context, while resolving ambiguity through human verification. These complementary diagnostics identify shortcut-solvable cases and isolate video-native challenges for genuine spatio-temporal understanding.
+          Video-Oasis rethinks the current benchmark landscape by using <strong><u>shared criteria</u></strong> to audit whether proliferating video benchmarks <strong><u>truly require visual evidence, temporal context, and reliable annotations</u></strong> for genuine video understanding.
         </p>
 
         <div class="oasis-steps" aria-label="Video-Oasis diagnostic criteria">
           <div class="oasis-step">
             <span class="oasis-step-index">01</span>
             <strong>Visual</strong>
-            <p>Determine whether the task truly requires grounded visual perception rather than language, audio, or text-based cues.</p>
+            <p>Determine <strong>whether the task truly requires grounded visual perception</strong> rather than language, audio, or text-based cues.</p>
           </div>
           <div class="oasis-step">
             <span class="oasis-step-index">02</span>
             <strong>Temporal</strong>
-            <p>Determine whether the answer depends on temporal order and context rather than isolated or unordered frames.</p>
+            <p>Determine <strong>whether the answer depends on temporal order and context</strong> rather than isolated or unordered frames.</p>
           </div>
           <div class="oasis-step">
             <span class="oasis-step-index">03</span>
             <strong>Ambiguity</strong>
-            <p>Ensure that questions have reliable annotations, unique answers, and evidence anchored to the relevant video context.</p>
+            <p>Ensure that questions <strong>have reliable annotations</strong>, unique answers, and evidence anchored to the relevant video context.</p>
           </div>
         </div>
       </div>
@@ -599,9 +599,6 @@
           <img
             src="./static/images/video-oasis.png"
             alt="Overview of the Video-Oasis diagnostic suite.">
-          <figcaption>
-            Overview of the Video-Oasis diagnostic suite, from visual-temporal dependency tests to shortcut filtering and video-native challenge distillation.
-          </figcaption>
         </figure>
       </div>
     </div>
@@ -615,24 +612,24 @@
         </h2>
 
         <p class="graph-description">
-          We estimate how often benchmark samples remain solvable without visual evidence or temporal context, and compare these shortcut ratios with reported accuracy, <strong><u>suggesting that high scores often reflect shortcut-solvable examples rather than video-native understanding</u></strong>.
+          We estimate how often benchmark samples remain solvable without visual evidence or temporal context, and compare these shortcut ratios with reported accuracy. <strong><u>We find that high scores often reflect shortcut-solvable examples rather than video-native understanding</u></strong>.
         </p>
 
         <div class="benchmark-chip-list" aria-label="Audited video benchmarks">
-          <a href="https://github.com/egoschema/EgoSchema" target="_blank" rel="noopener noreferrer">EgoSchema</a>
-          <a href="https://github.com/UCF-CRCV/VRR-QA" target="_blank" rel="noopener noreferrer">ImplicitQA</a>
-          <a href="https://github.com/longvideobench/LongVideoBench" target="_blank" rel="noopener noreferrer">LongVideoBench</a>
-          <a href="https://github.com/zai-org/LVBench" target="_blank" rel="noopener noreferrer">LVBench</a>
-          <a href="https://github.com/google-deepmind/neptune?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">MINERVA</a>
-          <a href="https://github.com/JUNJIE99/MLVU" target="_blank" rel="noopener noreferrer">MLVU</a>
-          <a href="https://github.com/GaryStack/MMR-V" target="_blank" rel="noopener noreferrer">MMR-V</a>
-          <a href="https://huggingface.co/datasets/OpenGVLab/MVBench" target="_blank" rel="noopener noreferrer">MVBench</a>
-          <a href="https://github.com/LJungang/RTV-Bench" target="_blank" rel="noopener noreferrer">RTV-Bench</a>
-          <a href="https://github.com/daniel-cores/tvbench" target="_blank" rel="noopener noreferrer">TVBench</a>
-          <a href="https://github.com/zhishuifeiqian/VCR-Bench" target="_blank" rel="noopener noreferrer">VCR-Bench</a>
-          <a href="https://github.com/MME-Benchmarks/Video-MME" target="_blank" rel="noopener noreferrer">Video-MME</a>
-          <a href="https://github.com/TencentARC/Video-Holmes" target="_blank" rel="noopener noreferrer">Video-Holmes</a>
-          <a href="https://github.com/vision-x-nyu/thinking-in-space" target="_blank" rel="noopener noreferrer">VSI-Bench</a>
+          <a class="chip-spatial" href="https://github.com/egoschema/EgoSchema" target="_blank" rel="noopener noreferrer">EgoSchema</a>
+          <a class="chip-spatial" href="https://github.com/UCF-CRCV/VRR-QA" target="_blank" rel="noopener noreferrer">ImplicitQA</a>
+          <a class="chip-spatial" href="https://github.com/vision-x-nyu/thinking-in-space" target="_blank" rel="noopener noreferrer">VSI-Bench</a>
+          <a class="chip-temporal" href="https://github.com/daniel-cores/tvbench" target="_blank" rel="noopener noreferrer">TVBench</a>
+          <a class="chip-temporal" href="https://github.com/zhishuifeiqian/VCR-Bench" target="_blank" rel="noopener noreferrer">VCR-Bench</a>
+          <a class="chip-temporal" href="https://github.com/LJungang/RTV-Bench" target="_blank" rel="noopener noreferrer">RTV-Bench</a>
+          <a class="chip-reasoning" href="https://github.com/TencentARC/Video-Holmes" target="_blank" rel="noopener noreferrer">Video-Holmes</a>
+          <a class="chip-reasoning" href="https://github.com/google-deepmind/neptune?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">MINERVA</a>
+          <a class="chip-reasoning" href="https://github.com/GaryStack/MMR-V" target="_blank" rel="noopener noreferrer">MMR-V</a>
+          <a class="chip-general" href="https://github.com/MME-Benchmarks/Video-MME" target="_blank" rel="noopener noreferrer">Video-MME</a>
+          <a class="chip-general" href="https://huggingface.co/datasets/OpenGVLab/MVBench" target="_blank" rel="noopener noreferrer">MVBench</a>
+          <a class="chip-general" href="https://github.com/zai-org/LVBench" target="_blank" rel="noopener noreferrer">LVBench</a>
+          <a class="chip-general" href="https://github.com/longvideobench/LongVideoBench" target="_blank" rel="noopener noreferrer">LongVideoBench</a>
+          <a class="chip-general" href="https://github.com/JUNJIE99/MLVU" target="_blank" rel="noopener noreferrer">MLVU</a>
         </div>
 
         <div class="graph-insights" aria-label="Shortcut ratio analysis summary">
@@ -643,29 +640,30 @@
           <div class="graph-insight">
             <span>Coverage</span>
             <div class="graph-insight-tags" aria-label="Benchmark coverage areas">
-              <strong>Spatial</strong>
-              <strong>Temporal</strong>
-              <strong>Reasoning</strong>
-              <strong>Holistic</strong>
+              <strong class="chip-spatial">Spatial</strong>
+              <strong class="chip-temporal">Temporal</strong>
+              <strong class="chip-reasoning">Reasoning</strong>
+              <strong class="chip-general">General</strong>
             </div>
           </div>
           <div class="graph-insight">
             <span>Findings</span>
             <ol class="graph-finding-list">
               <li>High scores with high shortcut rates.</li>
-              <li><strong>55%</strong> of benchmark samples are shortcut-solvable.</li>
+              <li><strong class="shortcut-emphasis">55%</strong> of benchmark samples are shortcut-solvable.</li>
             </ol>
           </div>
         </div>
 
-        <figure class="graph-figure">
-          <img
-            src="./static/images/Performance_Shortcut.png"
-            alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
-          <figcaption>
-            Shortcut ratio is compared against reported benchmark accuracy across the benchmark suite.
-          </figcaption>
-        </figure>
+        <div class="results-panels shortcut-panels" tabindex="0" aria-label="Shortcut analysis panels">
+          <article class="results-panel results-panel-figure">
+            <figure class="graph-figure results-collapse-figure">
+              <img
+                src="./static/images/Performance_Shortcut.png"
+                alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
+            </figure>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -678,7 +676,7 @@
         </h2>
 
         <p class="challenge-description">
-          Video-native challenges are the non-trivial cases that remain difficult even when shortcut pathways are removed.
+          Video-native challenges are the <strong><u>non-trivial cases that remain after shortcut pathways are removed</u></strong>, requiring models to rely on visual evidence, temporal context, and grounded spatio-temporal reasoning.
         </p>
 
         <div class="challenge-principles" aria-label="How Video-Oasis defines video-native challenges">
@@ -1010,20 +1008,15 @@
       <div class="insights-content">
         <div class="insights-header">
           <div>
-            <h2 class="insights-title">What Actually Helps on Video-Native Challenges?</h2>
+            <h2 class="insights-title">Algorithmic Designs from Video-Native Challenges</h2>
           </div>
         </div>
 
         <p class="insights-description">
-          The distilled video-native challenges expose a substantial gap in current VideoLLMs. We next use this setting to examine which algorithmic designs can help close this gap.
+          Because video-native challenges emphasize visual and temporal dependencies, they expose where current design choices help, <strong><u>where they remain limited, and which directions deserve closer investigation</u></strong>.
         </p>
 
         <div class="design-testbed">
-          <div class="design-testbed-lead">
-            <span>Diagnostic testbed</span>
-            <p>Because video-native challenges emphasize visual and temporal dependencies, they expose where current design choices help, where they remain limited, and which directions deserve closer investigation.</p>
-          </div>
-
           <div class="design-grid">
             <article class="design-card design-card-medium">
               <div class="design-card-topline">

@@ -260,7 +260,7 @@ border-radius: 999px;
 margin-bottom: 0.85rem;
 }
 
-.oasis-step strong {
+.oasis-step > strong {
 display: block;
 font-family: 'Google Sans', sans-serif;
 font-size: 1.24rem;
@@ -268,6 +268,13 @@ line-height: 1.25;
 font-weight: 800;
 color: #1f2937;
 margin-bottom: 0.45rem;
+}
+
+.oasis-step p strong {
+font-size: inherit;
+line-height: inherit;
+font-weight: 800;
+color: #1f2937;
 }
 
 .oasis-step p {
@@ -288,7 +295,7 @@ font-size: 2.4rem;
 }
 
 .question-description {
-font-size: 1.05rem;
+font-size: 1rem;
 }
 
 .question-criteria {
@@ -1126,6 +1133,10 @@ padding-bottom: 3.25rem;
 margin: 0 auto;
 }
 
+#performance-shortcut .graph-figure img {
+width: 100%;
+}
+
 .graph-content {
 max-width: 1000px;
 margin-left: 0;
@@ -1162,7 +1173,7 @@ margin-bottom: 0.9rem;
 
 .graph-description {
 max-width: 960px;
-font-size: 1.18rem;
+font-size: 1.25rem;
 line-height: 1.65;
 color: #53627c;
 margin-left: 0;
@@ -1184,9 +1195,9 @@ align-items: center;
 font-size: 0.78rem;
 line-height: 1;
 font-weight: 800;
-color: #9f1d1d;
-background: rgba(220, 38, 38, 0.06);
-border: 1px solid rgba(220, 38, 38, 0.2);
+color: #334155;
+background: #ffffff;
+border: 1px solid #dfe7f1;
 border-radius: 999px;
 padding: 0.48rem 0.68rem;
 box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
@@ -1196,9 +1207,59 @@ transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, trans
 .benchmark-chip-list a:hover,
 .benchmark-chip-list a:focus {
 color: #ffffff;
-background: #b42318;
-border-color: #b42318;
 transform: translateY(-1px);
+}
+
+.benchmark-chip-list a.chip-spatial,
+.graph-insight-tags .chip-spatial {
+color: #1d4ed8;
+background: rgba(37, 99, 235, 0.08);
+border-color: rgba(37, 99, 235, 0.24);
+}
+
+.benchmark-chip-list a.chip-temporal,
+.graph-insight-tags .chip-temporal {
+color: #0f766e;
+background: rgba(15, 118, 110, 0.08);
+border-color: rgba(15, 118, 110, 0.24);
+}
+
+.benchmark-chip-list a.chip-reasoning,
+.graph-insight-tags .chip-reasoning {
+color: #6d28d9;
+background: rgba(109, 40, 217, 0.08);
+border-color: rgba(109, 40, 217, 0.24);
+}
+
+.benchmark-chip-list a.chip-general,
+.graph-insight-tags .chip-general {
+color: #b45309;
+background: rgba(217, 119, 6, 0.1);
+border-color: rgba(217, 119, 6, 0.26);
+}
+
+.benchmark-chip-list a.chip-spatial:hover,
+.benchmark-chip-list a.chip-spatial:focus {
+background: #2563eb;
+border-color: #2563eb;
+}
+
+.benchmark-chip-list a.chip-temporal:hover,
+.benchmark-chip-list a.chip-temporal:focus {
+background: #0f766e;
+border-color: #0f766e;
+}
+
+.benchmark-chip-list a.chip-reasoning:hover,
+.benchmark-chip-list a.chip-reasoning:focus {
+background: #7c3aed;
+border-color: #7c3aed;
+}
+
+.benchmark-chip-list a.chip-general:hover,
+.benchmark-chip-list a.chip-general:focus {
+background: #d97706;
+border-color: #d97706;
 }
 
 .graph-insights {
@@ -1295,6 +1356,10 @@ line-height: inherit;
 color: #4f6bdc;
 }
 
+.graph-finding-list .shortcut-emphasis {
+color: #dc2626;
+}
+
 .graph-figure {
 display: flex;
 flex-direction: column;
@@ -1385,7 +1450,7 @@ margin-bottom: 0.9rem;
 
 .challenge-description {
 max-width: 960px;
-font-size: 1.18rem;
+font-size: 1.25rem;
 line-height: 1.65;
 color: #53627c;
 margin-bottom: 1.25rem;
@@ -1632,7 +1697,7 @@ margin-bottom: 0.9rem;
 
 .results-description {
 max-width: 960px;
-font-size: 1.18rem;
+font-size: 1.25rem;
 line-height: 1.65;
 color: #53627c;
 margin-bottom: 1.25rem;
@@ -1865,6 +1930,10 @@ color: #4f6bdc;
 border-bottom: 0;
 }
 
+.shortcut-panels {
+margin-top: 0.2rem;
+}
+
 .insights-section {
 padding-top: 1rem;
 padding-bottom: 4.5rem;
@@ -1911,8 +1980,8 @@ margin-bottom: 0;
 }
 
 .insights-description {
-max-width: 800px;
-font-size: 1.18rem;
+max-width: 960px;
+font-size: 1.25rem;
 line-height: 1.65;
 color: #53627c;
 margin-top: 0.9rem;
