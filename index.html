@@ -693,11 +693,11 @@
           </div>
           <div class="challenge-principle">
             <span>Data-driven distillation</span>
-            <strong>Five recurring challenge categories emerge from the filtered samples.</strong>
+            <strong>Five recurring challenge categories emerge by distilling existing benchmarks after shortcut filtering.</strong>
           </div>
           <div class="challenge-principle">
-            <span>Not new tasks</span>
-            <strong>We use existing benchmarks to examine what genuine video understanding requires.</strong>
+            <span>Diagnostic testbed</span>
+            <strong>They offer a controlled setting for analyzing model improvements under strict visual and temporal dependencies.</strong>
           </div>
         </div>
 
@@ -798,7 +798,7 @@
         <span class="results-kicker">Model evaluation</span>
 
         <h2 class="results-title">
-          How Do Current Models Perform?
+          How Do State-of-the-Art Models Perform?
         </h2>
 
         <p class="results-description">
@@ -1018,97 +1018,245 @@
         <div class="insights-header">
           <div>
             <span class="insights-kicker">Algorithmic insights</span>
-            <h2 class="insights-title">What Actually Matters for Robust Video Understanding?</h2>
+            <h2 class="insights-title">What Actually Helps on Video-Native Challenges?</h2>
           </div>
         </div>
 
         <p class="insights-description">
-          Beyond diagnosis, Video-Oasis also provides practical guidance for designing stronger video understanding systems.
+          Beyond evaluation, Video-Oasis uses the distilled video-native challenges as a diagnostic testbed for algorithmic design. We examine whether progress comes from better temporal grounding, adaptive reasoning control, or training objectives aligned with spatio-temporal dependencies.
         </p>
 
-        <div class="insight-presentation">
-          <div class="insight-presentation-lead">
-            <p class="insight-presentation-kicker">Three design levers</p>
-            <h3>The path toward stronger video understanding depends on three design levers: sharper evidence selection, more effective reasoning control, and better training objectives.</h3>
-            <p>These are the primary axes where algorithmic progress is most likely to emerge.</p>
+        <div class="design-testbed">
+          <div class="design-testbed-lead">
+            <span>Diagnostic testbed</span>
+            <p>Because video-native challenges emphasize visual and temporal dependencies, they expose where current design choices help, where they remain limited, and which directions deserve closer investigation.</p>
           </div>
 
-          <div class="insight-grid">
-            <article class="insight-card insight-card-grounding">
-              <div class="insight-card-topline">
-                <span class="insight-card-index">01</span>
-                <span class="insight-card-label">Temporal Grounding</span>
+          <div class="design-grid">
+            <article class="design-card design-card-medium">
+              <div class="design-card-topline">
+                <span class="design-card-index">01</span>
+                <span class="design-card-label">Temporal Grounding</span>
               </div>
-              <h3>Ground the answer in the relevant temporal span.</h3>
-              <div class="insight-metrics">
-                <div>
-                  <span>Baseline</span>
-                  <strong>31.5%</strong>
+              <h3>Is grounding the bottleneck?</h3>
+
+              <div class="design-question">
+                <span>Question</span>
+                <p>Do stronger models need better access to the right temporal evidence?</p>
+              </div>
+
+              <div class="design-table-stack">
+                <div class="design-table-block">
+                  <span class="design-table-title">Practical temporal grounding · Accuracy (%)</span>
+                  <div class="design-table-wrapper design-table-wrapper-fit">
+                    <table class="design-table design-table-compact design-table-balanced">
+                      <thead>
+                        <tr>
+                          <th scope="col">Method</th>
+                          <th scope="col">Grounding</th>
+                          <th scope="col">Overall</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Eagle2.5</th>
+                          <td>-</td>
+                          <td>31.5</td>
+                        </tr>
+                        <tr class="design-table-highlight">
+                          <th scope="row">Eagle2.5</th>
+                          <td>✓</td>
+                          <td>32.9 <span class="design-delta">(+1.4)</span></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Qwen3-VL Inst.</th>
+                          <td>-</td>
+                          <td>27.8</td>
+                        </tr>
+                        <tr class="design-table-highlight">
+                          <th scope="row">Qwen3-VL Inst.</th>
+                          <td>✓</td>
+                          <td>30.1 <span class="design-delta">(+2.3)</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div>
-                  <span>With temporal grounding</span>
-                  <strong>32.9%</strong>
-                </div>
-                <div>
-                  <span>Oracle temporal grounding on Video-Oasis-distilled samples</span>
-                  <strong>50.8%</strong>
+
+                <div class="design-table-block">
+                  <span class="design-table-title">Oracle temporal grounding · Accuracy (%)</span>
+                  <div class="design-table-wrapper design-table-wrapper-fit">
+                    <table class="design-table design-table-compact design-table-balanced">
+                      <thead>
+                        <tr>
+                          <th scope="col">Method</th>
+                          <th scope="col">V-Oasis</th>
+                          <th scope="col">Shortcut</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Eagle2.5</th>
+                          <td>35.0</td>
+                          <td>78.0</td>
+                        </tr>
+                        <tr class="design-table-highlight">
+                          <th scope="row">Eagle2.5 + Oracle</th>
+                          <td><strong>50.8</strong> <span class="design-delta">(+15.8)</span></td>
+                          <td>80.8 <span class="design-delta">(+2.8)</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-              <p>Precise grounding becomes most valuable when the task truly requires spatio-temporal reasoning rather than relying on shortcut-driven cues.</p>
+
+              <p class="design-lesson">
+                <span>Lesson</span>
+                Precise grounding becomes increasingly important when strong spatio-temporal dependencies are required.
+              </p>
             </article>
 
-            <article class="insight-card insight-card-reasoning">
-              <div class="insight-card-topline">
-                <span class="insight-card-index">02</span>
-                <span class="insight-card-label">Adaptive Reasoning</span>
+            <article class="design-card design-card-compact">
+              <div class="design-card-topline">
+                <span class="design-card-index">02</span>
+                <span class="design-card-label">Adaptive Reasoning</span>
               </div>
-              <h3>Adjust reasoning depth to the question at hand.</h3>
-              <div class="insight-metrics">
-                <div>
-                  <span>Instruction-following mode</span>
-                  <strong>33.8%</strong>
-                </div>
-                <div>
-                  <span>Always-on thinking mode</span>
-                  <strong>34.6%</strong>
-                </div>
-                <div>
-                  <span>Oracle mode selection</span>
-                  <strong>46.2%</strong>
+              <h3>Should models always think?</h3>
+
+              <div class="design-question">
+                <span>Question</span>
+                <p>Can controlling when to reason deeply matter as much as adding more reasoning?</p>
+              </div>
+
+              <div class="design-table-block">
+                <span class="design-table-title">Reasoning depth modulation · Accuracy (%)</span>
+                <div class="design-table-wrapper design-table-wrapper-fit">
+                  <table class="design-table design-table-compact design-table-adaptive">
+                  <thead>
+                    <tr>
+                      <th scope="col">Method</th>
+                      <th scope="col">Overall</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Qwen3-VL Inst.</th>
+                      <td>33.8</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Qwen3-VL Think.</th>
+                      <td>34.6</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Qwen3-VL Auto-R1</th>
+                      <td>36.8</td>
+                    </tr>
+                    <tr class="design-table-highlight design-table-separator">
+                      <th scope="row">Qwen3-VL Inst. or Think.</th>
+                      <td>46.2</td>
+                    </tr>
+                    <tr class="design-table-frontier">
+                      <th scope="row">Gemini-2.5 Pro</th>
+                      <td>46.7</td>
+                    </tr>
+                  </tbody>
+                  </table>
                 </div>
               </div>
-              <p>Reasoning-depth control is as important as raw model capacity. Choosing when to engage deeper reasoning can substantially narrow the gap to frontier-level performance.</p>
+
+              <p class="design-lesson">
+                <span>Lesson</span>
+                Strategic optimization of when to think can be as impactful as raw model scale.
+              </p>
             </article>
 
-            <article class="insight-card insight-card-training">
-              <div class="insight-card-topline">
-                <span class="insight-card-index">03</span>
-                <span class="insight-card-label">Training Objectives</span>
+            <article class="design-card">
+              <div class="design-card-topline">
+                <span class="design-card-index">03</span>
+                <span class="design-card-label">Training Paradigms</span>
               </div>
-              <h3>Design training objectives that match the demands of spatio-temporal reasoning.</h3>
-              <div class="insight-metrics">
-                <div>
-                  <span>SFT</span>
-                  <strong>34.5%</strong>
-                </div>
-                <div>
-                  <span>RLVR with QA reward only</span>
-                  <strong>26.3%</strong>
-                </div>
-                <div>
-                  <span>RLVR with QA + grounding reward</span>
-                  <strong>32.7%</strong>
-                </div>
-              </div>
-              <p>There is no single universally superior paradigm. SFT improves overall accuracy, while RLVR is effective only when the reward design is aligned with the underlying reasoning demands.</p>
-            </article>
-          </div>
+              <h3>What determines whether training helps?</h3>
 
-          <div class="insight-summary">
-            <p>
-              <span>Bottom line</span>
-              These findings suggest that progress in video understanding will depend on better evidence selection, adaptive reasoning strategies, and reward designs that better reflect the demands of spatio-temporal reasoning.
-            </p>
+              <div class="design-question">
+                <span>Question</span>
+                <p>Do SFT and RLVR provide a single best route, or complementary strengths?</p>
+              </div>
+
+              <div class="design-table-block">
+                <span class="design-table-title">SFT and RLVR training paradigms · Accuracy (%)</span>
+                <div class="design-table-wrapper">
+                  <table class="design-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Paradigm</th>
+                      <th scope="col">Model</th>
+                      <th scope="col">Reward</th>
+                      <th scope="col">Fine.</th>
+                      <th scope="col">Spatial</th>
+                      <th scope="col">Temporal</th>
+                      <th scope="col">Causal</th>
+                      <th scope="col">Global</th>
+                      <th scope="col">Overall</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="rowgroup" rowspan="2">SFT</th>
+                      <th scope="row">Qwen2.5-VL</th>
+                      <td>-</td>
+                      <td>23.3</td>
+                      <td>28.7</td>
+                      <td>32.3</td>
+                      <td>28.6</td>
+                      <td>21.2</td>
+                      <td>29.2</td>
+                    </tr>
+                    <tr class="design-table-highlight">
+                      <th scope="row">Eagle2.5</th>
+                      <td>-</td>
+                      <td>26.9</td>
+                      <td>31.0</td>
+                      <td>39.7</td>
+                      <td>33.2</td>
+                      <td>22.7</td>
+                      <td>34.5</td>
+                    </tr>
+                    <tr>
+                      <th scope="rowgroup" rowspan="2">RLVR</th>
+                      <th scope="row">Video-R1</th>
+                      <td>QA</td>
+                      <td>24.0</td>
+                      <td>24.0</td>
+                      <td>29.1</td>
+                      <td>27.3</td>
+                      <td>18.4</td>
+                      <td>26.3</td>
+                    </tr>
+                    <tr class="design-table-highlight">
+                      <th scope="row">VideoAuto-R1</th>
+                      <td>QA + Grounding</td>
+                      <td>25.4</td>
+                      <td>29.7</td>
+                      <td>35.9</td>
+                      <td>33.7</td>
+                      <td><u>28.6</u></td>
+                      <td>32.7</td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="design-lesson">
+                <span>Lesson</span>
+                <ol class="design-lesson-list">
+                  <li><strong>Long-context SFT helps:</strong> Eagle2.5 improves over Qwen2.5-VL without RLVR.</li>
+                  <li><strong>Reward design matters:</strong> RLVR outcomes vary substantially (Video-R1 &lt; Qwen2.5-VL &lt; VideoAuto-R1), suggesting that reward formulation is critical.</li>
+                  <li><strong>Strengths are complementary:</strong> SFT improves overall accuracy, while well-designed RLVR can help challenging tasks such as Global Narrative.</li>
+                </ol>
+              </div>
+            </article>
           </div>
         </div>
       </div>
