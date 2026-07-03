@@ -1362,7 +1362,43 @@ max-width: 960px;
 font-size: 1.18rem;
 line-height: 1.65;
 color: #53627c;
+margin-bottom: 1.25rem;
+}
+
+.challenge-principles {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 1rem;
 margin-bottom: 2rem;
+}
+
+.challenge-principle {
+min-width: 0;
+padding: 1rem 1.05rem;
+background: #f8fafc;
+border: 1px solid #dfe7f1;
+border-left: 4px solid #4f6bdc;
+border-radius: 10px;
+box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+.challenge-principle span {
+display: block;
+font-size: 0.72rem;
+line-height: 1;
+font-weight: 800;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #4f6bdc;
+margin-bottom: 0.55rem;
+}
+
+.challenge-principle strong {
+display: block;
+font-size: 0.96rem;
+line-height: 1.45;
+font-weight: 800;
+color: #1f2937;
 }
 
 .challenge-grid {
@@ -2125,6 +2161,10 @@ font-size: 1.9rem;
 
 .challenge-description {
 font-size: 1rem;
+}
+
+.challenge-principles {
+grid-template-columns: 1fr;
 }
 
 .challenge-grid {
