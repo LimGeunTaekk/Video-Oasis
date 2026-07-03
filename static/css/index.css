@@ -191,7 +191,7 @@ margin-bottom: 0.55rem;
 
 .question-criterion strong {
 display: block;
-font-size: 1.05rem;
+font-size: 1.2rem;
 line-height: 1.35;
 font-weight: 800;
 color: #1f2937;
@@ -2021,12 +2021,12 @@ flex: 0 0 auto;
 
 .design-card-label {
 display: block;
-font-size: 0.72rem;
-line-height: 1;
+font-size: 1.05rem;
+line-height: 1.25;
 font-weight: 800;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-color: #64748b;
+letter-spacing: 0;
+text-transform: none;
+color: #1f2937;
 }
 
 .design-card h3 {
@@ -2085,6 +2085,17 @@ letter-spacing: 0.08em;
 text-transform: uppercase;
 color: #4f6bdc;
 margin-bottom: 0.45rem;
+}
+
+.design-table-title a {
+color: inherit;
+text-decoration: underline;
+text-underline-offset: 0.12em;
+}
+
+.design-table-title a:hover,
+.design-table-title a:focus {
+color: #233fba;
 }
 
 .design-table-wrapper {
