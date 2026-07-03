@@ -1106,7 +1106,7 @@
 
               <p class="design-lesson">
                 <span>Findings</span>
-                Precise grounding becomes increasingly important when strong spatio-temporal dependencies are required.
+                <strong>Precise grounding</strong> becomes increasingly important when strong spatio-temporal dependencies are required.
               </p>
             </article>
 
@@ -1159,11 +1159,11 @@
 
               <p class="design-lesson">
                 <span>Findings</span>
-                Strategic optimization of when to think can be as impactful as raw model scale.
+                <strong>Strategic optimization of when to think</strong> can be as impactful as raw model scale.
               </p>
             </article>
 
-            <article class="design-card">
+            <article class="design-card design-card-medium">
               <div class="design-card-topline">
                 <span class="design-card-index">03</span>
                 <span class="design-card-label">What works, and what remains, for training video understanding?</span>
@@ -1175,19 +1175,14 @@
               </div>
 
               <div class="design-table-block">
-                <span class="design-table-title">SFT and RLVR training paradigms</span>
-                <div class="design-table-wrapper">
-                  <table class="design-table">
+                <span class="design-table-title">training paradigms (Base LLM : Qwen2.5-VL)</span>
+                <div class="design-table-wrapper design-table-wrapper-fit">
+                  <table class="design-table design-table-training">
                   <thead>
                     <tr>
                       <th scope="col">Paradigm</th>
                       <th scope="col">Model</th>
                       <th scope="col">Reward</th>
-                      <th scope="col">Fine.</th>
-                      <th scope="col">Spatial</th>
-                      <th scope="col">Temporal</th>
-                      <th scope="col">Causal</th>
-                      <th scope="col">Global</th>
                       <th scope="col">Overall</th>
                     </tr>
                   </thead>
@@ -1196,43 +1191,23 @@
                       <th scope="rowgroup" rowspan="2">SFT</th>
                       <th scope="row">Qwen2.5-VL</th>
                       <td>-</td>
-                      <td>23.3</td>
-                      <td>28.7</td>
-                      <td>32.3</td>
-                      <td>28.6</td>
-                      <td>21.2</td>
                       <td>29.2</td>
                     </tr>
                     <tr class="design-table-highlight">
                       <th scope="row">Eagle2.5</th>
                       <td>-</td>
-                      <td>26.9</td>
-                      <td>31.0</td>
-                      <td>39.7</td>
-                      <td>33.2</td>
-                      <td>22.7</td>
-                      <td>34.5</td>
+                      <td>34.5 <span class="design-delta">+5.3</span></td>
                     </tr>
                     <tr>
                       <th scope="rowgroup" rowspan="2">RLVR</th>
                       <th scope="row">Video-R1</th>
                       <td>QA</td>
-                      <td>24.0</td>
-                      <td>24.0</td>
-                      <td>29.1</td>
-                      <td>27.3</td>
-                      <td>18.4</td>
-                      <td>26.3</td>
+                      <td>26.3 <span class="design-delta design-delta-negative">-2.9</span></td>
                     </tr>
                     <tr class="design-table-highlight">
                       <th scope="row">VideoAuto-R1</th>
                       <td>QA + Grounding</td>
-                      <td>25.4</td>
-                      <td>29.7</td>
-                      <td>35.9</td>
-                      <td>33.7</td>
-                      <td><u>28.6</u></td>
-                      <td>32.7</td>
+                      <td>32.7 <span class="design-delta">+3.5</span></td>
                     </tr>
                   </tbody>
                   </table>
@@ -1244,7 +1219,7 @@
                 <ol class="design-lesson-list">
                   <li><strong>Long-context SFT helps:</strong> Eagle2.5 improves over Qwen2.5-VL without RLVR.</li>
                   <li><strong>Reward design matters:</strong> RLVR outcomes vary substantially (Video-R1 &lt; Qwen2.5-VL &lt; VideoAuto-R1), suggesting that reward formulation is critical.</li>
-                  <li><strong>Strengths are complementary:</strong> SFT improves overall accuracy, while well-designed RLVR can help challenging tasks such as Global Narrative.</li>
+                  <li><strong>Strengths are complementary:</strong> SFT improves overall accuracy, while RLVR can help challenging tasks such as Global Narrative (21.2-&gt;28.6).</li>
                 </ol>
               </div>
             </article>
