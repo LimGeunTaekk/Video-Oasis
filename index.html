@@ -78,6 +78,7 @@
       -webkit-font-smoothing: antialiased;
     }
     img, video { max-width: 100%; display: block; }
+    [hidden] { display: none !important; }
     a { color: var(--oasis-deep); text-decoration: none; }
     a:hover { text-decoration: underline; }
     strong { font-weight: 650; }
@@ -311,6 +312,8 @@
       background: var(--mirage-soft); color: var(--mirage-deep);
       padding: 28px 22px; font-size: 0.95rem; line-height: 1.55;
     }
+    .modal.no-video-case .modal-media video,
+    .modal.no-video-case .modal-media figcaption { display: none !important; }
     .modal-media .no-media b { font-family: var(--mono); display: block; margin-bottom: 6px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
     .modal-media figcaption { font-size: 0.8rem; color: var(--ink-faint); margin-top: 8px; font-family: var(--mono); }
     .modal-body h4 {
@@ -1199,7 +1202,10 @@
           mOpts.appendChild(li);
         });
 
-        if (d.mediaType === "video" && d.mediaSrc) {
+        var hasVideo = d.mediaType === "video" && d.mediaSrc;
+        caseModal.classList.toggle("no-video-case", !hasVideo);
+
+        if (hasVideo) {
           mVideo.src = d.mediaSrc;
           mVideo.hidden = false;
           mNoMedia.hidden = true;
