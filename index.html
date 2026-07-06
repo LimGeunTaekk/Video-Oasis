@@ -32,7 +32,23 @@
 </head>
 
 <body>
-  <section class="hero">
+  <nav class="page-nav" aria-label="Page sections">
+    <div class="page-nav-inner">
+      <a class="page-nav-brand" href="#top">
+        <img src="./static/images/icon.png" alt="">
+        <span>Video-Oasis</span>
+      </a>
+      <div class="page-nav-links">
+        <a href="#questions">Criteria</a>
+        <a href="#shortcut-examples">Examples</a>
+        <a href="#what-is-video-oasis">Oasis</a>
+        <a href="#video-native-challenges">Challenges</a>
+        <a href="#algorithmic-insights">Design</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="top">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
@@ -152,7 +168,7 @@
   </section>
 
   <section class="section shortcut-overview-section" id="shortcut-examples">
-    <div class="container is-max-widescreen">
+    <div class="container is-max-desktop">
       <div class="shortcut-overview-header">
         <div>
           <h2 class="shortcut-gallery-title">Shortcut Pathways in Video Understanding</h2>
@@ -655,15 +671,11 @@
           </div>
         </div>
 
-        <div class="results-panels shortcut-panels" tabindex="0" aria-label="Shortcut analysis panels">
-          <article class="results-panel results-panel-figure">
-            <figure class="graph-figure results-collapse-figure">
-              <img
-                src="./static/images/Performance_Shortcut.png"
-                alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
-            </figure>
-          </article>
-        </div>
+        <figure class="graph-figure">
+          <img
+            src="./static/images/Performance_Shortcut.png"
+            alt="Benchmark accuracy and shortcut ratio across video understanding benchmarks.">
+        </figure>
       </div>
     </div>
   </section>
@@ -1051,7 +1063,7 @@
                         </tr>
                         <tr class="design-table-highlight">
                           <th scope="row">Eagle2.5</th>
-                          <td>✓</td>
+                          <td>&#10003;</td>
                           <td>32.9 <span class="design-delta">(+1.4)</span></td>
                         </tr>
                         <tr>
@@ -1061,7 +1073,7 @@
                         </tr>
                         <tr class="design-table-highlight">
                           <th scope="row">Qwen3-VL Inst.</th>
-                          <td>✓</td>
+                          <td>&#10003;</td>
                           <td>30.1 <span class="design-delta">(+2.3)</span></td>
                         </tr>
                       </tbody>
