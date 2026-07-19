@@ -3,12 +3,12 @@
 This repository contains the project page for **Video-Oasis: Rethinking Evaluation of Video Understanding**.
 
 If you find Video-Oasis useful for your work, please cite:
-```
-@article{lim2026videooasis,
-  author    = {Geuntaek Lim and Sungjune Park and Jaeyun Lee and Inwoong Lee and Taeoh Kim and Dongyoon Wee and Minho Shim and Yukyung Choi},
-  title     = {Video-Oasis: Rethinking Evaluation of Video Understanding},
-  journal   = {arXiv preprint arXiv:2603.29616},
-  year      = {2026},
+```bibtex
+@inproceedings{videooasis,
+  title={Video-Oasis: Rethinking Evaluation of Video Understanding},
+  author={Geuntaek Lim and Sungjune Park and Jaeyun Lee and Inwoong Lee and Taeoh Kim and Dongyoon Wee and Minho Shim and Yukyung Choi},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2026}
 }
 ```
 
