@@ -179,6 +179,7 @@
     .btn.primary { background: var(--ink); color: #fff; }
     .btn.primary:hover { background: #2a323b; }
     .btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .btn svg.hf-icon { width: 18px; height: 18px; fill: none; }
 
     /* ---------- signature: the audit bar ---------- */
     .audit { padding: 40px 0 54px; }
@@ -552,8 +553,14 @@
           Code
         </a>
         <a class="btn" href="https://huggingface.co/papers/2603.29616" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5V3zm9 1.7V8h3.3L14 4.7zM7.6 11h8.8v1.5H7.6V11zm0 3.2h8.8v1.5H7.6v-1.5zm0 3.2h5.8v1.5H7.6v-1.5z"/></svg>
-          HF Paper
+          <svg class="hf-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="7.1" fill="#ffcc4d"/>
+            <path d="M4.8 14.2c-1 .6-1.5 1.7-1.1 2.5.4.8 1.6.8 2.6.2l2.3-1.4-1.4-2.6-2.4 1.3zM19.2 14.2c1 .6 1.5 1.7 1.1 2.5-.4.8-1.6.8-2.6.2l-2.3-1.4 1.4-2.6 2.4 1.3z" fill="#ffcc4d"/>
+            <circle cx="9.4" cy="10.4" r="1.05" fill="#2b2b2b"/>
+            <circle cx="14.6" cy="10.4" r="1.05" fill="#2b2b2b"/>
+            <path d="M8.7 14.4c1.8 1.6 4.8 1.6 6.6 0" stroke="#2b2b2b" stroke-width="1.45" stroke-linecap="round"/>
+          </svg>
+          Paper
         </a>
         <a class="btn" href="#bibtex">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 4h9a1 1 0 0 1 1 1v12h-2V6h-8V4zm-4 4h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg>
