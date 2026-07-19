@@ -4,7 +4,7 @@ This repository contains the project page for **Video-Oasis: Rethinking Evaluati
 
 If you find Video-Oasis useful for your work, please cite:
 ```bibtex
-@inproceedings{videooasis,
+@inproceedings{lim2026videooasis,
   title={Video-Oasis: Rethinking Evaluation of Video Understanding},
   author={Geuntaek Lim and Sungjune Park and Jaeyun Lee and Inwoong Lee and Taeoh Kim and Dongyoon Wee and Minho Shim and Yukyung Choi},
   booktitle={European Conference on Computer Vision (ECCV)},
